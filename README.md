@@ -12,4 +12,4 @@ If you discover a security vulnerability, please send an e-mail to Antonio Gonca
 
 ## License
 
-This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](LICENSE.md).
