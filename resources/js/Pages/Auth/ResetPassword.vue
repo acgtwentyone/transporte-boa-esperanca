@@ -27,7 +27,7 @@ const submit = () => {
 
 <template>
     <BreezeGuestLayout>
-        <Head title="Reset Password" />
+        <Head title="Redefinir palavra palavra passe" />
 
         <BreezeValidationErrors class="mb-4" />
 
@@ -38,18 +38,18 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
+                <BreezeLabel for="password" value="Palavra passe" />
                 <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <BreezeLabel for="password_confirmation" value="Confirm Password" />
+                <BreezeLabel for="password_confirmation" value="Confirmar palavra passe" />
                 <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" autocomplete="new-password" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <BreezeButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Reset Password
+                    Redefinir palavra passe
                 </BreezeButton>
             </div>
         </form>
