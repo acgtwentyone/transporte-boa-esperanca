@@ -30,7 +30,7 @@ return [
         'numeric' => ':attribute deve ter entre :min e :max.',
         'string' => ':attribute deve ter entre :min e :max characteres.',
     ],
-    'boolean' => 'Campo :attribute deve ser true or false.',
+    'boolean' => 'Campo :attribute deve ser verdadeiro ou falso.',
     'confirmed' => ':attribute confirmação não correspondem.',
     'current_password' => 'A palavra passe está incorreta.',
     'date' => ':attribute não é uma data válida.',
