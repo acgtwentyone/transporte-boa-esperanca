@@ -16,5 +16,6 @@ return [
     'failed' => 'Credenciais não corespondem aos nossos registros.',
     'password' => 'A palavra passe informada está incorreta.',
     'throttle' => 'Muitas tentativas de login. Por favor, tente novamente em :seconds segundos.',
-
+    'email' => 'Email',
+    'something_wrong' => 'Oppss. Algo deu errado.'
 ];
