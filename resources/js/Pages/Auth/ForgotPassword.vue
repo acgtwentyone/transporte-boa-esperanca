@@ -36,7 +36,7 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
+                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" autofocus autocomplete="username" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
