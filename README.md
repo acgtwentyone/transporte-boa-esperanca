@@ -1,6 +1,6 @@
 ## Contributing
 
-Thank you for considering contributing to the this project! The contribution guide can be found in the [Contributing guide](CONTRIBUTING.md). 
+Thank you for considering contributing to this project! The contribution guide can be found in the [Contributing guide](CONTRIBUTING.md). 
 
 ## Code of Conduct
 
