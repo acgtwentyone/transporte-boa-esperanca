@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'name' => 'Super Admin',
-            'email' => 'super.admin@boaesperanca.com',
+            'name' => config("custom.SUPER_ADMIN_USERNAME"),
+            'email' => config("custom.SUPER_ADMIN_EMAIL"),
+            'password' => config("custom.SUPER_ADMIN_PASSWORD")
         ]);
     }
 }
