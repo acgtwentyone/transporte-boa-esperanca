@@ -1,11 +1,9 @@
 <script setup>
-defineProps(['message']);
+defineProps(["message"]);
 </script>
 
 <template>
-    <div v-show="message">
-        <p class="text-sm text-red-600">
-            {{ message }}
-        </p>
-    </div>
+  <p class="text-sm text-red-600" v-show="message">
+    {{ message }}
+  </p>
 </template>
