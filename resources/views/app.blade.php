@@ -23,5 +23,6 @@
         @env ('local')
             <script src="http://localhost:8080/js/bundle.js"></script>
         @endenv
+        <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     </body>
 </html>
