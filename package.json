@@ -17,6 +17,7 @@
         "@vue/compiler-sfc": "^3.2.31",
         "autoprefixer": "^10.4.2",
         "axios": "^0.25",
+        "flowbite": "^1.4.7",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",
