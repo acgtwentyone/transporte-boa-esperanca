@@ -5,6 +5,7 @@ import BreezeDropdown from "@/Components/Dropdown.vue";
 import BreezeDropdownLink from "@/Components/DropdownLink.vue";
 import BreezeNavLink from "@/Components/NavLink.vue";
 import BreezeResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
+import BreezeSidebarLink from "@/Components/SidebarLink.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 
 const showingNavigationDropdown = ref(false);
@@ -14,10 +15,39 @@ const showingNavigationDropdown = ref(false);
   <div>
     <div class="min-h-screen bg-blue-900 p-8">
       <div class="flex">
-        <div class="w-2/12">
-          <span>teste</span>
+        <div class="w-3/12 min-w-min">
+          <div class="flex flex-col justify-center">
+            <Link :href="route('admin.dashboard')" class="text-xl text-white p-4">
+              Transporte Boa Esperança
+            </Link>
+            <hr class="m-4 bg-gray-900 h-0.5 w-100 opacity-25" />
+            <BreezeSidebarLink
+              href="#"
+              :active="route().current('admin.clients')"
+            >
+              Clientes
+            </BreezeSidebarLink>
+            <BreezeSidebarLink
+              href="#"
+              :active="route().current('admin.works')"
+            >
+              Trabalhos feitos
+            </BreezeSidebarLink>
+            <BreezeSidebarLink
+              href="#"
+              :active="route().current('admin.invoices')"
+            >
+              Faturas
+            </BreezeSidebarLink>
+            <BreezeSidebarLink
+              href="#"
+              :active="route().current('admin.fuels')"
+            >
+              Combustiveis
+            </BreezeSidebarLink>
+          </div>
         </div>
-        <div class="w-10/12">
+        <div class="w-9/12">
           <nav
             class="bg-white overflow-hidden shadow-sm rounded-t-3xl p-6 border-b border-gray-200"
           >
