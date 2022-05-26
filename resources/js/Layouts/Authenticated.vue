@@ -13,7 +13,7 @@ const showingNavigationDropdown = ref(false);
 
 <template>
   <div>
-    <div class="min-h-screen bg-blue-900 p-8">
+    <div class="min-h-screen bg-blue-800 p-8">
       <div class="flex">
         <div class="w-3/12 min-w-min flex flex-col justify-between">
           <div class="flex flex-col justify-center">
