@@ -31,7 +31,7 @@ const showingNavigationDropdown = ref(false);
               href="#"
               :active="route().current('admin.works')"
             >
-              Trabalhos feitos
+              Trabalhos realizados
             </BreezeSidebarLink>
             <BreezeSidebarLink
               href="#"
@@ -68,7 +68,7 @@ const showingNavigationDropdown = ref(false);
                       :href="route('admin.dashboard')"
                       :active="route().current('admin.dashboard')"
                     >
-                      Dashboard
+                      Inicio
                     </BreezeNavLink>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ const showingNavigationDropdown = ref(false);
                           method="post"
                           as="button"
                         >
-                          Log Out
+                          Sair
                         </BreezeDropdownLink>
                       </template>
                     </BreezeDropdown>
