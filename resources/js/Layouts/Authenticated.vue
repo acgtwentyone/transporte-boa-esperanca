@@ -17,33 +17,95 @@ const showingNavigationDropdown = ref(false);
       <div class="flex">
         <div class="w-3/12 min-w-min">
           <div class="flex flex-col justify-center">
-            <Link :href="route('admin.dashboard')" class="text-xl text-white p-4">
-              Transporte Boa Esperança
+            <Link
+              :href="route('admin.dashboard')"
+              class="text-xl text-white p-4"
+            >
+              <span class="hidden sm:block">Transporte Boa Esperança</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-10 w-10 sm:hidden"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                />
+              </svg>
             </Link>
             <hr class="m-4 bg-gray-900 h-0.5 w-100 opacity-25" />
             <BreezeSidebarLink
               href="#"
               :active="route().current('admin.clients')"
             >
-              Clientes
+              <span class="hidden sm:block">Clientes</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 sm:hidden"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                />
+              </svg>
             </BreezeSidebarLink>
             <BreezeSidebarLink
               href="#"
               :active="route().current('admin.works')"
             >
-              Trabalhos realizados
+              <span class="hidden sm:block">Trabalhos Realizados</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 sm:hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
             </BreezeSidebarLink>
             <BreezeSidebarLink
               href="#"
               :active="route().current('admin.invoices')"
             >
-              Faturas
+              <span class="hidden sm:block">Faturas</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 sm:hidden"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z"
+                />
+                <path
+                  d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"
+                />
+              </svg>
             </BreezeSidebarLink>
             <BreezeSidebarLink
               href="#"
               :active="route().current('admin.fuels')"
             >
-              Combustiveis
+              <span class="hidden sm:block">Combustíveis</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 sm:hidden"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
+                  clip-rule="evenodd"
+                />
+              </svg>
             </BreezeSidebarLink>
           </div>
         </div>
@@ -167,7 +229,7 @@ const showingNavigationDropdown = ref(false);
                   :href="route('admin.dashboard')"
                   :active="route().current('admin.dashboard')"
                 >
-                  Dashboard
+                  Início
                 </BreezeResponsiveNavLink>
               </div>
 
@@ -188,7 +250,7 @@ const showingNavigationDropdown = ref(false);
                     method="post"
                     as="button"
                   >
-                    Log Out
+                    Sair
                   </BreezeResponsiveNavLink>
                 </div>
               </div>
