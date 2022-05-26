@@ -15,7 +15,7 @@ const showingNavigationDropdown = ref(false);
   <div>
     <div class="min-h-screen bg-blue-900 p-8">
       <div class="flex">
-        <div class="w-3/12 min-w-min">
+        <div class="w-3/12 min-w-min flex flex-col justify-between">
           <div class="flex flex-col justify-center">
             <Link
               :href="route('admin.dashboard')"
@@ -107,6 +107,10 @@ const showingNavigationDropdown = ref(false);
                 />
               </svg>
             </BreezeSidebarLink>
+          </div>
+          <div class="flex p-2">
+            <span class="hidden sm:block text-white text-xs">&#169;&nbsp;2022&#174;&nbsp;Transporte Boa Esperança</span>
+            <span class="sm:hidden text-white text-xs">&#169;&nbsp;2022&#174;&nbsp;TBE </span>
           </div>
         </div>
         <div class="w-9/12">
