@@ -35,8 +35,8 @@ const showingNavigationDropdown = ref(false);
             </Link>
             <hr class="m-4 bg-gray-900 h-0.5 w-100 opacity-25" />
             <BreezeSidebarLink
-              href="#"
-              :active="route().current('admin.clients')"
+              :href="route('clients.index')"
+              :active="route().current('clients.index')"
             >
               <span class="hidden sm:block">Clientes</span>
               <svg
