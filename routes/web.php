@@ -38,7 +38,9 @@ Route::get('/admin', function () {
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
-    Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+    // Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+
+    Route::resource('clients', ClientController::class);
 });
 
 require __DIR__.'/auth.php';
