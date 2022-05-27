@@ -105,6 +105,7 @@ import { Head } from "@inertiajs/inertia-vue3";
           </tr>
         </tbody>
       </table>
+      <!-- <pagination :links="$page.props.clients.links" /> -->
     </div>
   </BreezeAuthenticatedLayout>
 </template>
