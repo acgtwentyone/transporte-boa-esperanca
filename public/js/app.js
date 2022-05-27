@@ -24645,7 +24645,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ), _hoisted_9]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])])])];
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <pagination :links=\"$page.props.clients.links\" /> ")])];
     }),
     _: 1
     /* STABLE */
