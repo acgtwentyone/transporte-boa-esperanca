@@ -23856,7 +23856,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "Dashboard"
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeAuthenticatedLayout"], null, {
     header: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["StatisticBox"], null, {
+      return [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["StatisticBox"], {
+        href: _ctx.route('clients.index')
+      }, {
         icon: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_2];
         }),
@@ -23869,7 +23871,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      })];
+      }, 8
+      /* PROPS */
+      , ["href"])];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_5];
