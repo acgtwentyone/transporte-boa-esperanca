@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Admin\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,13 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return Inertia::render('AdminDashboard');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
+
+Route::get('/admin', function () {
+    return Inertia::render('AdminDashboard');
+})->middleware(['auth', 'verified'])->name('admin.dashboard');
+
+Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
+    Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+});
 
 require __DIR__.'/auth.php';
