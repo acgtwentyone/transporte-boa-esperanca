@@ -10,7 +10,7 @@ import { Head } from "@inertiajs/inertia-vue3";
   <BreezeAuthenticatedLayout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">Início</h2>
-      <StatisticBox>
+      <StatisticBox :href="route('clients.index')">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
