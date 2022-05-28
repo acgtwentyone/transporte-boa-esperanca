@@ -1,7 +1,11 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import StatisticBox from "@/Components/StatisticBox.vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head, usePage } from "@inertiajs/inertia-vue3";
+
+import {computed} from 'vue';
+
+const total_clients = computed(() => usePage().props.value.total_clients)
 </script>
 
 <template>
@@ -28,7 +32,7 @@ import { Head } from "@inertiajs/inertia-vue3";
           </svg>
         </template>
         <template #total>
-          <span>2982</span>
+          <span>{{total_clients}}</span>
         </template>
         <template #title>
           <span>Clientes</span>

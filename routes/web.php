@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,17 +26,9 @@ use App\Http\Controllers\Admin\ClientController;
 //     ]);
 // });
 
-Route::get('/', function () {
-    return Inertia::render('AdminDashboard');
-})->middleware(['auth', 'verified']);
+Route::get('/', [AdminController::class, 'index'])->middleware(['auth', 'verified']);
 
-Route::get('/admin', function () {
-    return Inertia::render('AdminDashboard');
-})->middleware(['auth', 'verified'])->name('admin.dashboard');
-
-Route::get('/admin', function () {
-    return Inertia::render('AdminDashboard');
-})->middleware(['auth', 'verified'])->name('admin.dashboard');
+Route::get('/admin', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('admin.dashboard');
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
     // Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
