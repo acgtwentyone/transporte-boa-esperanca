@@ -29,7 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Clients/Create');
     }
 
     /**
@@ -40,7 +40,21 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-        //
+        try {
+
+            $client = new Client;
+
+            $client->name = $request->name;
+            $client->phone = $request->phone;
+            $client->address = $request->address;
+
+            $client->save();
+
+            return redirect()->route('clients.index')->with('message', 'Cliente registrado com successo.');
+            
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**
@@ -51,7 +65,9 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return Inertia::render('Clients/Show', [
+            'client' => $client
+        ]);
     }
 
     /**
@@ -62,7 +78,9 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return Inertia::render('Clients/Edit', [
+            'client' => $client
+        ]);
     }
 
     /**
@@ -74,7 +92,13 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        try {
+            
+            dd($request->all());
+            
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     /**
@@ -85,6 +109,12 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        try {
+            
+            dd($client);
+            
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }

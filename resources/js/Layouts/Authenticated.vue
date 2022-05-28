@@ -109,8 +109,12 @@ const showingNavigationDropdown = ref(false);
             </BreezeSidebarLink>
           </div>
           <div class="flex p-2">
-            <span class="hidden sm:block text-white text-xs">&#169;&nbsp;2022&#174;&nbsp;Transporte Boa Esperança</span>
-            <span class="sm:hidden text-white text-xs">&#169;&nbsp;2022&#174;&nbsp;TBE </span>
+            <span class="hidden sm:block text-white text-xs"
+              >&#169;&nbsp;2022&#174;&nbsp;Transporte Boa Esperança</span
+            >
+            <span class="sm:hidden text-white text-xs"
+              >&#169;&nbsp;2022&#174;&nbsp;TBE
+            </span>
           </div>
         </div>
         <div class="w-9/12">
@@ -272,6 +276,9 @@ const showingNavigationDropdown = ref(false);
           <main
             class="bg-white overflow-hidden shadow-sm rounded-b-3xl p-6 border-b border-gray-200"
           >
+            <div v-if="$page.props.flash.message" class="alert">
+              {{ $page.props.flash.message }}
+            </div>
             <slot />
           </main>
         </div>
