@@ -103,6 +103,12 @@ import { Head } from "@inertiajs/inertia-vue3";
               </div>
             </td>
           </tr>
+          <tr
+            class="relative overflow-x-auto shadow-md sm:rounded-lg"
+            v-if="$page.props.clients.length === 0"
+          >
+            <td class="px-6 py-4">Não há clientes registrados!!!</td>
+          </tr>
         </tbody>
       </table>
       <!-- <pagination :links="$page.props.clients.links" /> -->
