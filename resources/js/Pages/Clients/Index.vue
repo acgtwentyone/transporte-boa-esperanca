@@ -1,6 +1,8 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import { Head, usePage } from "@inertiajs/inertia-vue3";
+import { Head, usePage, Link } from "@inertiajs/inertia-vue3";
+import BreezeDropdown from "@/Components/Dropdown.vue";
+import BreezeDropdownLink from "@/Components/DropdownLink.vue";
 import { computed } from "vue";
 const clients = computed(() => usePage().props.value.clients);
 </script>
@@ -10,9 +12,46 @@ const clients = computed(() => usePage().props.value.clients);
 
   <BreezeAuthenticatedLayout>
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Clientes
-      </h2>
+      <div class="flex justify-between items-center">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+          Clientes
+        </h2>
+        <div>
+          <BreezeDropdown align="right" width="48">
+            <template #trigger>
+              <span class="inline-flex rounded-md">
+                <button
+                  type="button"
+                  class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </template>
+
+            <template #content>
+              <BreezeDropdownLink
+                :href="route('clients.create')"
+              >
+                Adicionar Cliente
+              </BreezeDropdownLink>
+            </template>
+          </BreezeDropdown>
+        </div>
+      </div>
     </template>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
