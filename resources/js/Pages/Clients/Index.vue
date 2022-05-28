@@ -1,6 +1,8 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head, usePage } from "@inertiajs/inertia-vue3";
+import { computed } from "vue";
+const clients = computed(() => usePage().props.value.clients);
 </script>
 
 <template>
@@ -30,7 +32,7 @@ import { Head } from "@inertiajs/inertia-vue3";
         </thead>
         <tbody>
           <tr
-            v-for="client in $page.props.clients"
+            v-for="client in clients"
             :key="client.id"
             class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
           >
@@ -105,13 +107,13 @@ import { Head } from "@inertiajs/inertia-vue3";
           </tr>
           <tr
             class="relative overflow-x-auto shadow-md sm:rounded-lg"
-            v-if="$page.props.clients.length === 0"
+            v-if="clients.length === 0"
           >
             <td class="px-6 py-4">Não há clientes registrados!!!</td>
           </tr>
         </tbody>
       </table>
-      <!-- <pagination :links="$page.props.clients.links" /> -->
+      <!-- <pagination :links="clients.links" /> -->
     </div>
   </BreezeAuthenticatedLayout>
 </template>
