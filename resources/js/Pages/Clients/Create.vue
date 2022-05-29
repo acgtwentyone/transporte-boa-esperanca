@@ -37,7 +37,7 @@ const submit = () => {
       </h2>
     </template>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-4">
       <form @submit.prevent="submit">
         <div class="block md:flex">
           <div>
