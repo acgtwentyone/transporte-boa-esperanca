@@ -24754,7 +24754,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_2 = {
-  "class": "relative overflow-x-auto shadow-md sm:rounded-lg"
+  "class": "relative overflow-x-auto shadow-md sm:rounded-lg p-4"
 };
 var _hoisted_3 = ["onSubmit"];
 var _hoisted_4 = {
@@ -24880,7 +24880,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "font-semibold text-xl text-gray-800 leading-tight"
-}, " Alterar Cliente ", -1
+}, " Alterar Informações de Cliente ", -1
 /* HOISTED */
 );
 
