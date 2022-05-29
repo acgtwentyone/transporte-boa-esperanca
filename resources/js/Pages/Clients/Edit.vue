@@ -10,7 +10,7 @@ import { computed } from "vue";
   <BreezeAuthenticatedLayout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Alterar Cliente
+        Alterar Informações de Cliente
       </h2>
     </template>
 
