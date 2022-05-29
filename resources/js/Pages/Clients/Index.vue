@@ -3,7 +3,10 @@ import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, usePage, Link } from "@inertiajs/inertia-vue3";
 import Button from "@/Components/Button.vue";
 import { computed } from "vue";
+import ConfirmDialog from "@/Components/ConfirmDialog.vue";
+
 const clients = computed(() => usePage().props.value.clients);
+
 </script>
 
 <template>
@@ -107,22 +110,41 @@ const clients = computed(() => usePage().props.value.clients);
                     />
                   </svg>
                 </Link>
-                <Link :href="route('clients.destroy', client)">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 text-red-700"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                    />
-                  </svg>
-                </Link>
+                <ConfirmDialog :confirmUrl="route('clients.destroy', client)">
+                  <template #trigger>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-red-700 cursor-pointer"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                      />
+                    </svg>
+                  </template>
+                  <template #title> Apagar registro de cliente ? </template>
+                  <template #content>
+                    <span
+                      >Não será possivel obter os registros de cliente após
+                      realizar esta operação.</span
+                    >
+                  </template>
+                  <template #confirm>
+                    <Link
+                      class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-700 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                      :href="route('clients.destroy', client)"
+                      method="delete"
+                      as="button"
+                    >
+                      Confirmar
+                    </Link>
+                  </template>
+                </ConfirmDialog>
               </div>
             </td>
           </tr>

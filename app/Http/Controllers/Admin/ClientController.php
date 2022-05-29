@@ -111,7 +111,9 @@ class ClientController extends Controller
     {
         try {
             
-            dd($client);
+            $client->delete();
+
+            return redirect()->back()->with('message', 'Cliente removido.');
             
         } catch (\Throwable $th) {
             //throw $th;
