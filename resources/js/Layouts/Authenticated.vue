@@ -7,6 +7,7 @@ import BreezeNavLink from "@/Components/NavLink.vue";
 import BreezeResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import BreezeSidebarLink from "@/Components/SidebarLink.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import Alert from "@/Components/Alert.vue";
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -277,7 +278,9 @@ const showingNavigationDropdown = ref(false);
             class="bg-white overflow-hidden shadow-sm rounded-b-3xl p-6 border-b border-gray-200"
           >
             <div v-if="$page.props.flash.message" class="alert">
-              {{ $page.props.flash.message }}
+              <Alert :type="$page.props.flash.message.type">
+                {{ $page.props.flash.message.msg }}
+              </Alert>
             </div>
             <slot />
           </main>
