@@ -50,7 +50,7 @@ class ClientController extends Controller
 
             $client->save();
 
-            return redirect()->route('clients.index')->with('message', 'Cliente registrado com successo.');
+            return redirect()->route('clients.index')->with('message', ['msg' => 'Cliente registrado com successo.', 'type' => 'success']);
             
         } catch (\Throwable $th) {
             //throw $th;
@@ -113,7 +113,7 @@ class ClientController extends Controller
             
             $client->delete();
 
-            return redirect()->back()->with('message', 'Cliente removido.');
+            return redirect()->back()->with('message', ['msg' => 'Cliente removido com successo.', 'type' => 'success']);
             
         } catch (\Throwable $th) {
             //throw $th;
