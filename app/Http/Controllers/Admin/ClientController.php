@@ -74,7 +74,12 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         return Inertia::render('Clients/Show', [
-            'client' => $client
+            'client' => $client,
+            'works' => [
+                ["date" => "12/09/2020", "material" => "Brita", "place" => "Ribeira da Prata", "freight_value" => 30000, "paid" => "Não", "debt_value" => 20920, "debt_date" => "27/02/2021", "created_at" => "20/05/2022"],
+                ["date" => "11/09/2021", "material" => "Arreia", "place" => "Chão Bom", "freight_value" => 90000, "paid" => "Não", "debt_value" => 20920, "debt_date" => "27/02/2021", "created_at" => "20/05/2022"],
+                ["date" => "12/09/2020", "material" => "Cimento", "place" => "Achada Tenda", "freight_value" => 10000, "paid" => "SIM", "debt_value" => 20920, "debt_date" => "27/02/2021", "created_at" => "20/05/2022"],
+            ]
         ]);
     }
 
