@@ -34,6 +34,7 @@ const data = computed(() =>
           <th scope="col" class="px-6 py-3">Nome</th>
           <th scope="col" class="px-6 py-3">Morada</th>
           <th scope="col" class="px-6 py-3">Telefone</th>
+          <th scope="col" class="px-6 py-3">Data do Registro</th>
           <th scope="col" class="px-6 py-3" v-if="hasActions">
             <span class="sr-only"></span>
           </th>
@@ -53,6 +54,7 @@ const data = computed(() =>
           </th>
           <td class="px-6 py-4">{{ client.address }}</td>
           <td class="px-6 py-4">{{ client.phone }}</td>
+          <td class="px-6 py-4">{{ client.created_at }}</td>
           <td class="px-6 py-4 text-right" v-if="hasActions">
             <div class="flex justify-end">
               <Link :href="route('clients.show', client)">
