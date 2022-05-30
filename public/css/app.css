@@ -1001,6 +1001,9 @@ input[type="range"]::-ms-fill-lower {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -1354,6 +1357,9 @@ input[type="range"]::-ms-fill-lower {
 .p-2 {
   padding: 0.5rem;
 }
+.p-1 {
+  padding: 0.25rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1464,6 +1470,9 @@ input[type="range"]::-ms-fill-lower {
 }
 .font-semibold {
   font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
 }
 .uppercase {
   text-transform: uppercase;
@@ -2011,6 +2020,14 @@ input[type="range"]::-ms-fill-lower {
     padding: 1.5rem;
   }
 
+  .sm\:p-4 {
+    padding: 1rem;
+  }
+
+  .sm\:p-2 {
+    padding: 0.5rem;
+  }
+
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -2022,6 +2039,10 @@ input[type="range"]::-ms-fill-lower {
 
   .sm\:pb-4 {
     padding-bottom: 1rem;
+  }
+
+  .sm\:pl-4 {
+    padding-left: 1rem;
   }
 
   .sm\:text-left {
