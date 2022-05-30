@@ -18,7 +18,7 @@ class ClientController extends Controller
     public function index()
     {
         return Inertia::render('Clients/Index', [
-            'clients' => Client::orderByDesc('created_at')->paginate(2)->through(function($client) {
+            'clients' => Client::orderByDesc('created_at')->paginate(2)->withQueryString()->through(function($client) {
                 return [
                     'id' => $client->id,
                     'name' => $client->name,
