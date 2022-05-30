@@ -1,13 +1,15 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import StatisticBox from "@/Components/StatisticBox.vue";
+import Dropdown from "@/Components/Dropdown.vue";
+import DropdownLink from "@/Components/DropdownLink.vue";
 import { Head, usePage } from "@inertiajs/inertia-vue3";
 
-import ListClient from '@/Pages/Clients/Partials/List.vue';
+import ListClient from "@/Pages/Clients/Partials/List.vue";
 
-import {computed} from 'vue';
+import { computed } from "vue";
 
-const total_clients = computed(() => usePage().props.value.total_clients)
+const total_clients = computed(() => usePage().props.value.total_clients);
 </script>
 
 <template>
@@ -34,7 +36,7 @@ const total_clients = computed(() => usePage().props.value.total_clients)
           </svg>
         </template>
         <template #total>
-          <span>{{total_clients}}</span>
+          <span>{{ total_clients }}</span>
         </template>
         <template #title>
           <span>Clientes</span>
@@ -43,7 +45,38 @@ const total_clients = computed(() => usePage().props.value.total_clients)
     </template>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <h1 class="p-4 text-base">Ultimos clientes registrados</h1>
+      <div class="flex justify-between items-center">
+        <h1 class="p-4 text-base">Ultimos clientes registrados</h1>
+        <Dropdown align="right" width="48">
+          <template #trigger>
+            <span class="inline-flex rounded-md cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                />
+              </svg>
+            </span>
+          </template>
+
+          <template #content>
+            <DropdownLink :href="route('clients.index')" as="button">
+              Ver Todos
+            </DropdownLink>
+            <DropdownLink :href="route('clients.create')" as="button">
+              Adicionar Cliente
+            </DropdownLink>
+          </template>
+        </Dropdown>
+      </div>
       <ListClient :hasActions="false" :recent="true" />
     </div>
   </BreezeAuthenticatedLayout>
