@@ -132,7 +132,7 @@ const data = computed(() =>
         </tr>
         <tr
           class="relative overflow-x-auto shadow-md sm:rounded-lg"
-          v-if="data.length === 0"
+          v-if="items.length === 0"
         >
           <td class="px-6 py-4">Não há clientes registrados!!!</td>
         </tr>
