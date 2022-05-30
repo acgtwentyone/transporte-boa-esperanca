@@ -4,8 +4,6 @@ import { Head, usePage, Link } from "@inertiajs/inertia-vue3";
 import Button from "@/Components/Button.vue";
 import { computed } from "vue";
 import ListClient from "@/Pages/Clients/Partials/List.vue";
-
-const clients = computed(() => usePage().props.value.clients);
 </script>
 
 <template>
@@ -43,8 +41,7 @@ const clients = computed(() => usePage().props.value.clients);
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <h1 class="p-4 text-base">Clientes Registrados</h1>
-      <ListClient />
-      <!-- <pagination :links="clients.links" /> -->
+      <ListClient :recent="false" />
     </div>
   </BreezeAuthenticatedLayout>
 </template>

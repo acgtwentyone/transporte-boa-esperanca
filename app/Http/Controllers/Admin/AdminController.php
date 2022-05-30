@@ -22,7 +22,7 @@ class AdminController extends Controller
         $clients = Client::orderByDesc('created_at'); 
 
         return Inertia::render('AdminDashboard', [
-            'clients' => $clients->get(),
+            'clients' => $clients->take(2)->get(),
             'total_clients' => $clients->count()
         ]);
     }

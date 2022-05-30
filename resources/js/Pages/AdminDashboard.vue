@@ -44,7 +44,7 @@ const total_clients = computed(() => usePage().props.value.total_clients)
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <h1 class="p-4 text-base">Ultimos clientes registrados</h1>
-      <ListClient :hasActions="false" />
+      <ListClient :hasActions="false" :recent="true" />
     </div>
   </BreezeAuthenticatedLayout>
 </template>
