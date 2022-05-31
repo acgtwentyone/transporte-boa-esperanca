@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\Work;
 
 class AdminController extends Controller
 {
@@ -20,6 +21,7 @@ class AdminController extends Controller
     public function index ()
     {
         $clients = Client::orderByDesc('created_at'); 
+        $works = Work::orderByDesc('created_at'); 
 
         return Inertia::render('AdminDashboard', [
             'clients' => $clients->take(8)->get()->map(function($client) {
@@ -31,7 +33,16 @@ class AdminController extends Controller
                     'created_at' => $client->created_at->toDateTimeString(), 
                 ];
             }),
-            'total_clients' => $clients->count()
+            'works' => $works->take(8)->get()->map(function($work) {
+                return [
+                    'id' => $work->id,
+                    'date' => $work->date,
+                    'place' => $work->place,
+                    'created_at' => $work->created_at->toDateTimeString(), 
+                ];
+            }),
+            'total_clients' => $clients->count(),
+            'total_works' => $works->count(),
         ]);
     }
 }
