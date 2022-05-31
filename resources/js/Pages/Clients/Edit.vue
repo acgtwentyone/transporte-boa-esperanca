@@ -1,6 +1,5 @@
 <script setup>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import { Head, usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
 import CreateEdit from '@/Pages/Clients/Partials/CreateEdit.vue';
 
