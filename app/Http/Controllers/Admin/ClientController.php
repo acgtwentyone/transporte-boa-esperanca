@@ -106,8 +106,10 @@ class ClientController extends Controller
     public function update(UpdateClientRequest $request, Client $client)
     {
         try {
-            
-            dd($request->all());
+
+            $client->update($request->all());
+
+            return redirect()->route('clients.index')->with('message', ['msg' => 'Cliente atualizado com successo.', 'type' => 'success']);
             
         } catch (\Throwable $th) {
             //throw $th;
