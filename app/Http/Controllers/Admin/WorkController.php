@@ -6,6 +6,7 @@ use App\Http\Requests\WorkRequest;
 use App\Models\Work;
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use App\Helpers\WorkStatus;
 
 class WorkController extends Controller
 {
@@ -52,7 +53,22 @@ class WorkController extends Controller
      */
     public function store(WorkRequest $request)
     {
-        //
+        $work = new Work;
+
+        $work->date = $request->date;
+        $work->material = $request->material;
+        $work->place = $request->place;
+        $work->paid = WorkStatus::NOT_PAID;
+
+        if (isset($work->freight_value)) 
+            $work->freight_value = $request->freight_value;
+            
+        if (isset($work->price))
+            $work->price = $request->price;
+
+        $work->save();
+
+        return redirect()->route('works.index')->with('message', ['msg' => 'Trabalho registrado com successo.', 'type' => 'success']);
     }
 
     /**
