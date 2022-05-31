@@ -18,9 +18,7 @@ const props = defineProps({
 
 const items = computed(() => usePage().props.value.works);
 const data = computed(() =>
-  !props.recent
-    ? usePage().props.value.works.data
-    : usePage().props.value.works
+  !props.recent ? usePage().props.value.works.data : usePage().props.value.works
 );
 </script>
 
@@ -32,7 +30,11 @@ const data = computed(() =>
       >
         <tr>
           <th scope="col" class="px-6 py-3">Data</th>
+          <th scope="col" class="px-6 py-3">Material</th>
           <th scope="col" class="px-6 py-3">Lugar</th>
+          <th scope="col" class="px-6 py-3">Valor de Frete</th>
+          <th scope="col" class="px-6 py-3">Pago</th>
+          <th scope="col" class="px-6 py-3">Preço</th>
           <th scope="col" class="px-6 py-3" v-if="hasActions">
             <span class="sr-only"></span>
           </th>
@@ -50,7 +52,28 @@ const data = computed(() =>
           >
             {{ work.date }}
           </th>
+          <td class="px-6 py-4">{{ work.material }}</td>
           <td class="px-6 py-4">{{ work.place }}</td>
+          <td class="px-6 py-4">{{ work.freight_value }}</td>
+          <th
+            v-if="work.paid"
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+          >
+            <span class="px-3 py-2 rounded-sm bg-green-500 text-white"
+              >Pago</span
+            >
+          </th>
+          <th
+            v-else
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+          >
+            <span class="px-3 py-2 rounded-sm bg-red-500 text-white"
+              >Não Pago</span
+            >
+          </th>
+          <td class="px-6 py-4">{{ work.price }}</td>
           <td class="px-6 py-4 text-right" v-if="hasActions">
             <div class="flex justify-end">
               <Link :href="route('works.show', work)">
@@ -110,8 +133,8 @@ const data = computed(() =>
                 <template #title> Apagar registro ? </template>
                 <template #content>
                   <span
-                    >Não será possivel accessar este registro após
-                    realizar esta operação.</span
+                    >Não será possivel accessar este registro após realizar esta
+                    operação.</span
                   >
                 </template>
                 <template #confirm>
