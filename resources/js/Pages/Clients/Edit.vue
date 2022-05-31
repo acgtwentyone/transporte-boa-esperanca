@@ -2,20 +2,11 @@
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, usePage } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
+import CreateEdit from '@/Pages/Clients/Partials/CreateEdit.vue';
+
+const client = computed(() => usePage().props.value.client);
 </script>
 
 <template>
-  <Head title="Dashboard" />
-
-  <BreezeAuthenticatedLayout>
-    <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Alterar Informações de Cliente
-      </h2>
-    </template>
-
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <h1 class="p-4 text-base">Preencha os campos</h1>
-    </div>
-  </BreezeAuthenticatedLayout>
+  <CreateEdit :client="client" />
 </template>
