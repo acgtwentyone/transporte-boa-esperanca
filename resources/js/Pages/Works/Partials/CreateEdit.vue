@@ -12,17 +12,17 @@ const errors = computed(() => usePage().props.value.errors);
 const hasErrors = computed(() => Object.keys(errors.value).length > 0);
 
 const props = defineProps({
-  client: {
+  work: {
     type: Object,
     default: undefined,
   },
 });
 
-const form = props.client
+const form = props.work
   ? useForm({
-      name: props.client.name,
-      phone: props.client.phone,
-      address: props.client.address,
+      name: props.work.name,
+      phone: props.work.phone,
+      address: props.work.address,
     })
   : useForm({
       name: "",
@@ -31,14 +31,14 @@ const form = props.client
     });
 
 const submit = () => {
-  if (props.client) {
-    form.put(route("clients.update", props.client), {
+  if (props.work) {
+    form.put(route("works.update", props.work), {
       onSuccess: () => {
         form.reset();
       },
     });
   } else {
-    form.post(route("clients.store"), {
+    form.post(route("works.store"), {
       onSuccess: () => {
         form.reset();
       },
@@ -54,7 +54,7 @@ const submit = () => {
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{
-          props.client ? "Alterar Informaçoes de Cliente" : "Registrar Cliente"
+          props.work ? "Alterar Informaçoes de trabalho" : "Registrar Trabalho"
         }}
         <hr class="mt-3" />
       </h2>
@@ -105,7 +105,7 @@ const submit = () => {
             :class="{ 'opacity-25': form.processing }"
             :disabled="form.processing"
           >
-            {{ props.client ? "Atualizar" : "Registrar" }}
+            {{ props.work ? "Atualizar" : "Registrar" }}
           </Button>
         </div>
       </form>

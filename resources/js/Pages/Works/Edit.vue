@@ -1,12 +1,11 @@
 <script setup>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import { Head, usePage } from "@inertiajs/inertia-vue3";
+import { usePage } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
 import CreateEdit from '@/Pages/Clients/Partials/CreateEdit.vue';
 
-const client = computed(() => usePage().props.value.client);
+const work = computed(() => usePage().props.value.work);
 </script>
 
 <template>
-  <CreateEdit :client="client" />
+  <CreateEdit :work="work" />
 </template>
