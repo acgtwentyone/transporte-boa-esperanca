@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\WorksController;
 use App\Http\Controllers\Admin\AdminController;
 
 /*
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
     // Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
 
     Route::resource('clients', ClientController::class);
+    Route::resource('works', WorksController::class);
 });
 
 require __DIR__.'/auth.php';
