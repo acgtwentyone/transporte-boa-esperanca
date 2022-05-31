@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreClientRequest;
-use App\Http\Requests\UpdateClientRequest;
+use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
@@ -43,10 +42,10 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreClientRequest  $request
+     * @param  \App\Http\Requests\ClientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClientRequest $request)
+    public function store(ClientRequest $request)
     {
         try {
 
@@ -99,11 +98,11 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateClientRequest  $request
+     * @param  \App\Http\Requests\ClientRequest  $request
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(ClientRequest $request, Client $client)
     {
         try {
 
