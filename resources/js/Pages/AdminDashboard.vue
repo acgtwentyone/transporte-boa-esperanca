@@ -6,6 +6,7 @@ import DropdownLink from "@/Components/DropdownLink.vue";
 import { Head, usePage } from "@inertiajs/inertia-vue3";
 
 import ListClient from "@/Pages/Clients/Partials/List.vue";
+import ListWorks from "@/Pages/Works/Partials/List.vue";
 
 import { computed } from "vue";
 
@@ -77,6 +78,41 @@ const total_clients = computed(() => usePage().props.value.total_clients);
         </Dropdown>
       </div>
       <ListClient :hasActions="false" :recent="true" />
+    </div>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div class="flex justify-between items-center">
+        <h1 class="p-4 text-base">Ultimos trabalhos registrados</h1>
+        <Dropdown align="right" width="48">
+          <template #trigger>
+            <span class="inline-flex rounded-md cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                />
+              </svg>
+            </span>
+          </template>
+
+          <template #content>
+            <DropdownLink :href="route('works.index')" as="button">
+              Ver Todos
+            </DropdownLink>
+            <DropdownLink :href="route('works.create')" as="button">
+              Adicionar Trabalho
+            </DropdownLink>
+          </template>
+        </Dropdown>
+      </div>
+      <ListWorks :hasActions="false" :recent="true" />
     </div>
   </BreezeAuthenticatedLayout>
 </template>
