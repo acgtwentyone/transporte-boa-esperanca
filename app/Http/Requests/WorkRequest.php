@@ -7,24 +7,25 @@ use Illuminate\Foundation\Http\FormRequest;
 class WorkRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
+    * paid
+    * freight_value
+    * price
      */
     public function rules()
     {
         return [
-            //
+            'date' => 'required',
+            'material' => 'required',
+            'place' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'date.required' => 'Data é obrigatório',
+            'material.required' => 'Material é obrigatório',
+            'place.required' => 'Lugar é obrigatório',
         ];
     }
 }
