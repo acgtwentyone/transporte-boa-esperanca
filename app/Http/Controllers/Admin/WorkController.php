@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\WorkRequest;
 use App\Models\Work;
+use Inertia\Inertia;
+use App\Http\Controllers\Controller;
 
 class WorkController extends Controller
 {
@@ -14,7 +16,22 @@ class WorkController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Works/Index', [
+            'works' => Work::orderByDesc('created_at')->paginate(8)->withQueryString()->through(function($work) {
+                return [
+                    'id' => $work->id,
+                    'date' => $work->date,
+                    'material' => $work->material,
+                    'place' => $work->place,
+                    'freight_value' => $work->freight_value,
+                    'paid' => $work->paid,
+                    'debt_value' => $work->debt_value,
+                    'price' => $work->price,
+                    'debt_date' => $work->debt_date,
+                    'created_at' => $work->created_at,
+                ];
+            })
+        ]);
     }
 
     /**
