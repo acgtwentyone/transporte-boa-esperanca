@@ -52,8 +52,8 @@ const showingNavigationDropdown = ref(false);
               </svg>
             </BreezeSidebarLink>
             <BreezeSidebarLink
-              href="#"
-              :active="route().current('admin.works')"
+              :href="route('works.index')"
+              :active="route().current('works.index')"
             >
               <span class="hidden sm:block">Trabalhos Realizados</span>
               <svg
