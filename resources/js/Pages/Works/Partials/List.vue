@@ -29,13 +29,15 @@ const data = computed(() =>
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
-          <th scope="col" class="px-6 py-3">Data</th>
-          <th scope="col" class="px-6 py-3">Material</th>
-          <th scope="col" class="px-6 py-3">Lugar</th>
-          <th scope="col" class="px-6 py-3">Valor de Frete</th>
-          <th scope="col" class="px-6 py-3">Pago</th>
-          <th scope="col" class="px-6 py-3">Preço</th>
-          <th scope="col" class="px-6 py-3" v-if="hasActions">
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Data</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Material</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Lugar</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">
+            Valor de Frete
+          </th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Pago</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Preço</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap" v-if="hasActions">
             <span class="sr-only"></span>
           </th>
         </tr>
@@ -52,9 +54,9 @@ const data = computed(() =>
           >
             {{ work.date }}
           </th>
-          <td class="px-6 py-4">{{ work.material }}</td>
-          <td class="px-6 py-4">{{ work.place }}</td>
-          <td class="px-6 py-4">{{ work.freight_value }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ work.material }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ work.place }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ work.freight_value }}</td>
           <th
             v-if="work.paid"
             scope="row"
@@ -73,7 +75,7 @@ const data = computed(() =>
               >Não Pago</span
             >
           </th>
-          <td class="px-6 py-4">{{ work.price }}</td>
+          <td class="px-6 py-4 whitespace-nowrap">{{ work.price }}</td>
           <td class="px-6 py-4 text-right" v-if="hasActions">
             <div class="flex justify-end">
               <Link :href="route('works.show', work)">
