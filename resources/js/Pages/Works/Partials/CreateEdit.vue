@@ -1,7 +1,9 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, useForm, usePage } from "@inertiajs/inertia-vue3";
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 
 import Input from "@/Components/Input.vue";
 import InputError from "@/Components/InputError.vue";
@@ -37,7 +39,7 @@ const form = props.work
       client_id: props.work.client_id,
     })
   : useForm({
-      date: "",
+      date: ref(),
       material: "",
       place: "",
       paid: "",
@@ -87,11 +89,15 @@ const submit = () => {
         <div class="block md:flex md:flex-wrap">
           <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Data" />
-            <Input
-              id="date"
-              label="date"
-              type="text"
-              class="mt-1 block w-full"
+            <Datepicker
+              :enableTimePicker="false"
+              :maxDate="new Date()"
+              :keepActionRow="true"
+              :autoApply="true"
+              locale="pt"
+              cancelText="Cancelar"
+              selectText="Selecionar"
+              inputClassName="mt-1 block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
               v-model="form.date"
             />
             <InputError :message="errors.date" v-if="hasErrors" />
@@ -129,7 +135,7 @@ const submit = () => {
             />
             <InputError :message="errors.paid" v-if="hasErrors" />
           </div>
-          <div class="mt-4 md:mt-0 md:ml-3 md:mt-4">
+          <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Valor de Frete" />
             <Input
               id="freight_value"
@@ -140,7 +146,7 @@ const submit = () => {
             />
             <InputError :message="errors.freight_value" v-if="hasErrors" />
           </div>
-          <div class="mt-4 md:mt-0 md:ml-3 md:mt-4">
+          <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Preço" />
             <Input
               id="price"
