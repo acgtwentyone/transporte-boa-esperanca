@@ -78,7 +78,9 @@ const total_works = computed(() => usePage().props.value.total_works);
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <div class="flex justify-between items-center">
-        <h1 class="p-4 text-base">Ultimos clientes registrados</h1>
+        <h1 class="font-semibold text-xl text-gray-800 leading-tight p-4">
+          Ultimos clientes registrados
+        </h1>
         <Dropdown align="right" width="48">
           <template #trigger>
             <span class="inline-flex rounded-md cursor-pointer">
@@ -111,9 +113,11 @@ const total_works = computed(() => usePage().props.value.total_works);
       </div>
       <ListClient :hasActions="false" :recent="true" />
     </div>
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
       <div class="flex justify-between items-center">
-        <h1 class="p-4 text-base">Ultimos trabalhos registrados</h1>
+        <h1 class="font-semibold text-xl text-gray-800 leading-tight p-4">
+          Ultimos trabalhos registrados
+        </h1>
         <Dropdown align="right" width="48">
           <template #trigger>
             <span class="inline-flex rounded-md cursor-pointer">
