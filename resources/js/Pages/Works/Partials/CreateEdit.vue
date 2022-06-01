@@ -130,24 +130,30 @@ const submit = () => {
           </div>
           <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Valor de Frete" />
-            <Input
-              id="freight_value"
-              label="freight_value"
-              type="text"
-              class="mt-1 block w-full"
-              v-model="form.freight_value"
-            />
+            <div class="relative">
+              <Input
+                id="freight_value"
+                label="freight_value"
+                type="text"
+                class="mt-1 block pr-14"
+                v-model="form.freight_value"
+              />
+              <span class="absolute right-0 top-2.5 right-4">ECV</span>
+            </div>
             <InputError :message="errors.freight_value" v-if="hasErrors" />
           </div>
           <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Preço" />
-            <Input
-              id="price"
-              label="price"
-              type="text"
-              class="mt-1 block w-full"
-              v-model="form.price"
-            />
+            <div class="relative">
+              <Input
+                id="price"
+                label="price"
+                type="text"
+                class="mt-1 block pr-14"
+                v-model="form.price"
+              />
+              <span class="absolute right-0 top-2.5 right-4">ECV</span>
+            </div>
             <InputError :message="errors.price" v-if="hasErrors" />
           </div>
           <div class="mt-4 md:mt-0 md:ml-3 md:w-40">
