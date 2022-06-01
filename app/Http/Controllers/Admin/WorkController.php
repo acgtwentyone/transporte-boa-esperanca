@@ -77,7 +77,6 @@ class WorkController extends Controller
                 $work->date = $request->date;
                 $work->material = $request->material;
                 $work->place = $request->place;
-                $work->paid = WorkStatus::NOT_PAID;
                 $work->client_id = $request->client_id;
         
                 if (isset($request->freight_value)) 
@@ -85,6 +84,11 @@ class WorkController extends Controller
                     
                 if (isset($request->price))
                     $work->price = $request->price;
+
+                if (isset($request->paid)) 
+                    $work->paid = $request->paid['code'];
+                else 
+                    $work->paid = WorkStatus::NOT_PAID;
         
                 $work->save();
 
@@ -155,18 +159,15 @@ class WorkController extends Controller
 
             if (isset($client)) {
 
-                $work->date = $request->date;
-                $work->material = $request->material;
-                $work->place = $request->place;
-        
-                if (isset($request->freight_value)) 
-                    $work->freight_value = $request->freight_value;
+                $fields = ["date", "material", "place", "freight_value", "price"];
 
-                if (isset($request->paid)) 
-                    $work->paid = $request->paid;
-                    
-                if (isset($request->price))
-                    $work->price = $request->price;
+                foreach ($fields as $field) {
+                    if (isset($request[$field])) 
+                        $work->$field = $request[$field];
+                }
+
+                if (isset($request->paid) && isset($request->paid['code']) && ($request->paid['code'] == WorkStatus::PAID || $request->paid['code'] == WorkStatus::NOT_PAID))
+                    $work->paid = $request->paid['code'];
         
                 $work->save();
 
@@ -176,7 +177,7 @@ class WorkController extends Controller
             } 
 
         } catch(\Throwable $th) {
-            // log to database
+            // log error to database
         }
 
         return 1 == $from_client ? redirect()->route('clients.show', ['client' => $client])->with('message', ['msg' => $msg, 'type' => $type]) : redirect()->route('works.index');

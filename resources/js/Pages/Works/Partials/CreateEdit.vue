@@ -3,6 +3,8 @@ import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, useForm, usePage } from "@inertiajs/inertia-vue3";
 import { computed, ref } from "vue";
 import Datepicker from "@vuepic/vue-datepicker";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
 import "@vuepic/vue-datepicker/dist/main.css";
 
 import Input from "@/Components/Input.vue";
@@ -28,12 +30,14 @@ const props = defineProps({
   },
 });
 
+const Status = ["Não Pago", "Pago"];
+
 const form = props.work
   ? useForm({
       date: props.work.date,
       material: props.work.material,
       place: props.work.place,
-      paid: props.work.paid,
+      paid: Status[props.work.paid],
       freight_value: props.work.freight_value,
       price: props.work.price,
       client_id: props.work.client_id,
@@ -124,17 +128,6 @@ const submit = () => {
             />
             <InputError :message="errors.place" v-if="hasErrors" />
           </div>
-          <div v-if="props.work" class="mt-4 md:mt-0 md:ml-3">
-            <Label value="Pago" />
-            <Input
-              id="paid"
-              label="paid"
-              type="text"
-              class="mt-1 block w-full"
-              v-model="form.paid"
-            />
-            <InputError :message="errors.paid" v-if="hasErrors" />
-          </div>
           <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Valor de Frete" />
             <Input
@@ -156,6 +149,18 @@ const submit = () => {
               v-model="form.price"
             />
             <InputError :message="errors.price" v-if="hasErrors" />
+          </div>
+          <div class="mt-4 md:mt-0 md:ml-3 md:w-40">
+            <Label value="Pago" />
+            <vSelect
+              placeholder="Selecione uma opção"
+              :options="[
+                { label: 'Pago', code: '1' },
+                { label: 'Não Pago', code: '0' },
+              ]"
+              v-model="form.paid"
+            ></vSelect>
+            <InputError :message="errors.paid" v-if="hasErrors" />
           </div>
         </div>
 
