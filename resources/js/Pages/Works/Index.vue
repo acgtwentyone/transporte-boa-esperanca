@@ -1,8 +1,6 @@
 <script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import { Head, usePage, Link } from "@inertiajs/inertia-vue3";
-import Button from "@/Components/Button.vue";
-import { computed } from "vue";
+import { Head } from "@inertiajs/inertia-vue3";
 import ListWorks from "@/Pages/Works/Partials/List.vue";
 </script>
 
@@ -20,7 +18,7 @@ import ListWorks from "@/Pages/Works/Partials/List.vue";
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <h1 class="p-4 text-base">Trabalhos Registrados</h1>
-      <ListWorks :recent="false" />
+      <ListWorks :recent="false" :from_client="0" />
     </div>
   </BreezeAuthenticatedLayout>
 </template>

@@ -20,6 +20,10 @@ const props = defineProps({
     type: Object,
     default: undefined,
   },
+  from_client: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const form = props.work
@@ -47,6 +51,7 @@ const submit = () => {
     form.put(
       route("works.update_work", {
         work: props.work,
+        from_client: props.from_client,
       }),
       {
         onSuccess: () => {

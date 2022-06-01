@@ -14,6 +14,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  from_client: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const items = computed(() => usePage().props.value.works);
@@ -101,7 +105,7 @@ const data = computed(() =>
               </Link>
               <Link
                 :href="
-                  route('works.edit_work', { work: work })
+                  route('works.edit_work', { work: work, from_client: props.from_client })
                 "
               >
                 <svg

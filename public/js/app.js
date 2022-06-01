@@ -23187,11 +23187,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Authenticated.vue */ "./resources/js/Layouts/Authenticated.vue");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Components_Button_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Button.vue */ "./resources/js/Components/Button.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Pages_Works_Partials_List_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Pages/Works/Partials/List.vue */ "./resources/js/Pages/Works/Partials/List.vue");
-
-
+/* harmony import */ var _Pages_Works_Partials_List_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Works/Partials/List.vue */ "./resources/js/Pages/Works/Partials/List.vue");
 
 
 
@@ -23202,11 +23198,7 @@ __webpack_require__.r(__webpack_exports__);
     var __returned__ = {
       BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
-      usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.usePage,
-      Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link,
-      Button: _Components_Button_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed,
-      ListWorks: _Pages_Works_Partials_List_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+      ListWorks: _Pages_Works_Partials_List_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23254,8 +23246,8 @@ __webpack_require__.r(__webpack_exports__);
       "default": undefined
     },
     from_client: {
-      type: Boolean,
-      "default": false
+      type: Number,
+      "default": 0
     }
   },
   setup: function setup(__props, _ref) {
@@ -23361,8 +23353,8 @@ __webpack_require__.r(__webpack_exports__);
       "default": false
     },
     from_client: {
-      type: Boolean,
-      "default": false
+      type: Number,
+      "default": 0
     }
   },
   setup: function setup(__props, _ref) {
@@ -24625,8 +24617,8 @@ var _hoisted_7 = {
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "p-4 text-base"
-}, "Ultimos clientes registrados", -1
+  "class": "font-semibold text-xl text-gray-800 leading-tight p-4"
+}, " Ultimos clientes registrados ", -1
 /* HOISTED */
 );
 
@@ -24652,15 +24644,15 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Adicionar Cliente ");
 
 var _hoisted_12 = {
-  "class": "relative overflow-x-auto shadow-md sm:rounded-lg"
+  "class": "relative overflow-x-auto shadow-md sm:rounded-lg mt-4"
 };
 var _hoisted_13 = {
   "class": "flex justify-between items-center"
 };
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "p-4 text-base"
-}, "Ultimos trabalhos registrados", -1
+  "class": "font-semibold text-xl text-gray-800 leading-tight p-4"
+}, " Ultimos trabalhos registrados ", -1
 /* HOISTED */
 );
 
@@ -26016,7 +26008,7 @@ var _hoisted_15 = {
   "class": "text-gray-700"
 };
 var _hoisted_16 = {
-  "class": "flex flex-col rounded-md shadow-md mt-10"
+  "class": "flex flex-col rounded-md shadow-md mt-8"
 };
 var _hoisted_17 = {
   "class": "flex justify-between w-full items-center"
@@ -26090,7 +26082,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListClientWorks"], {
         recent: false,
-        from_client: true
+        from_client: 1
       })])];
     }),
     _: 1
@@ -26202,8 +26194,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["CreateEdit"], {
-    client: $setup.client,
-    from_client: true
+    client: $setup.client
   }, null, 8
   /* PROPS */
   , ["client"]);
@@ -26277,7 +26268,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListWorks"], {
         recent: false,
-        from_client: false
+        from_client: 0
       })])];
     }),
     _: 1

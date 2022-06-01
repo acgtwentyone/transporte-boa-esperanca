@@ -122,12 +122,9 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        return Inertia::render("Works/Edit", [
-            'work' => $work
-        ]);
     }
 
-    public function editWork(Work $work, bool $from_client=false)
+    public function editWork(Work $work, int $from_client=0)
     {
         return Inertia::render("Works/Edit", [
             'work' => $work,
@@ -147,7 +144,7 @@ class WorkController extends Controller
 
     }
 
-    public function updateWork(WorkRequest $request, Work $work, bool $from_client=false)
+    public function updateWork(WorkRequest $request, Work $work, int $from_client=0)
     {
         try {
 
@@ -182,7 +179,7 @@ class WorkController extends Controller
             // log to database
         }
 
-        return $from_client ? redirect()->route('clients.show', ['client' => $client])->with('message', ['msg' => $msg, 'type' => $type]) : redirect()->route('works.index');
+        return 1 == $from_client ? redirect()->route('clients.show', ['client' => $client])->with('message', ['msg' => $msg, 'type' => $type]) : redirect()->route('works.index');
     }
 
     /**
