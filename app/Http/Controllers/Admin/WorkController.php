@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\WorkRequest;
 use App\Models\Work;
+use App\Models\Client;
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
 use App\Helpers\WorkStatus;
@@ -29,7 +30,7 @@ class WorkController extends Controller
                     'debt_value' => $work->debt_value,
                     'price' => $work->price,
                     'debt_date' => $work->debt_date,
-                    'created_at' => $work->created_at,
+                    'created_at' => $work->created_at->toDateTimeString(),
                 ];
             })
         ]);
@@ -45,6 +46,13 @@ class WorkController extends Controller
         //
     }
 
+    public function newWork(Client $client)
+    {
+        return Inertia::render("Works/Create", [
+            'client' => $client,
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -53,22 +61,41 @@ class WorkController extends Controller
      */
     public function store(WorkRequest $request)
     {
-        $work = new Work;
+        try {
 
-        $work->date = $request->date;
-        $work->material = $request->material;
-        $work->place = $request->place;
-        $work->paid = WorkStatus::NOT_PAID;
+            $msg = 'Algo deu errado';
+            $type = 'error';
 
-        if (isset($work->freight_value)) 
-            $work->freight_value = $request->freight_value;
-            
-        if (isset($work->price))
-            $work->price = $request->price;
+            $work = new Work;
 
-        $work->save();
+            $client = Client::findOrFail($request->client_id);
 
-        return redirect()->route('works.index')->with('message', ['msg' => 'Trabalho registrado com successo.', 'type' => 'success']);
+            if (isset($client)) {
+
+                $work->date = $request->date;
+                $work->material = $request->material;
+                $work->place = $request->place;
+                $work->paid = WorkStatus::NOT_PAID;
+                $work->client_id = $request->client_id;
+        
+                if (isset($request->freight_value)) 
+                    $work->freight_value = $request->freight_value;
+                    
+                if (isset($request->price))
+                    $work->price = $request->price;
+        
+                $work->save();
+
+                $msg = 'Trabalho registrado com successo.';
+                $type = 'success';
+
+            } 
+
+        } catch(\Throwable $th) {
+            $msg = 'Oppss... Algo deu errado.';
+        }
+
+        return redirect()->route('clients.show', ['client' => $client])->with('message', ['msg' => $msg, 'type' => $type]);
     }
 
     /**

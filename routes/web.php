@@ -36,6 +36,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
 
     Route::resource('clients', ClientController::class);
     Route::resource('works', WorkController::class);
+
+    Route::get('new-work/{client}', [WorkController::class, 'newWork'])->name('works.new_work');
 });
 
 require __DIR__.'/auth.php';

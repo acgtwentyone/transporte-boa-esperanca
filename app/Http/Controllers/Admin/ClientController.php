@@ -74,11 +74,21 @@ class ClientController extends Controller
     {
         return Inertia::render('Clients/Show', [
             'client' => $client,
-            'works' => [
-                ["date" => "12/09/2020", "material" => "Brita", "place" => "Ribeira da Prata", "freight_value" => 30000, "paid" => "Não", "debt_value" => 20920, "debt_date" => "27/02/2021", "created_at" => "20/05/2022"],
-                ["date" => "11/09/2021", "material" => "Arreia", "place" => "Chão Bom", "freight_value" => 90000, "paid" => "Não", "debt_value" => 20920, "debt_date" => "27/02/2021", "created_at" => "20/05/2022"],
-                ["date" => "12/09/2020", "material" => "Cimento", "place" => "Achada Tenda", "freight_value" => 10000, "paid" => "SIM", "debt_value" => 20920, "debt_date" => "27/02/2021", "created_at" => "20/05/2022"],
-            ]
+            'works' => $client->works()->orderByDesc('created_at')->paginate(8)->withQueryString()->through(function($work) {
+                return [
+                    'id' => $work->id,
+                    'date' => $work->date,
+                    'material' => $work->material,
+                    'place' => $work->place,
+                    'freight_value' => $work->freight_value,
+                    'paid' => $work->paid,
+                    'debt_value' => $work->debt_value,
+                    'price' => $work->price,
+                    'debt_date' => $work->debt_date,
+                    'created_at' => $work->created_at->toDateTimeString(),
+                    'client_id' => $work->client_id,
+                ];
+            }),
         ]);
     }
 

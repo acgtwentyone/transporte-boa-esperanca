@@ -16,18 +16,30 @@ const props = defineProps({
     type: Object,
     default: undefined,
   },
+  client: {
+    type: Object,
+    default: undefined,
+  },
 });
 
 const form = props.work
   ? useForm({
-      name: props.work.name,
-      phone: props.work.phone,
-      address: props.work.address,
+      date: props.work.date,
+      material: props.work.material,
+      place: props.work.place,
+      paid: props.work.paid,
+      freight_value: props.work.freight_value,
+      price: props.work.price,
+      client_id: props.work.client_id,
     })
   : useForm({
-      name: "",
-      phone: "",
-      address: "",
+      date: "",
+      material: "",
+      place: "",
+      paid: "",
+      freight_value: "",
+      price: "",
+      client_id: props.client.id,
     });
 
 const submit = () => {
@@ -64,38 +76,70 @@ const submit = () => {
       <form @submit.prevent="submit">
         <div class="block md:flex">
           <div>
-            <Label value="Nome" />
+            <Label value="Data" />
             <Input
-              id="name"
-              label="name"
+              id="date"
+              label="date"
               type="text"
               class="mt-1 block w-full"
-              v-model="form.name"
+              v-model="form.date"
             />
-            <InputError :message="errors.name" v-if="hasErrors" />
+            <InputError :message="errors.date" v-if="hasErrors" />
           </div>
-
-          <div class="mt-3 md:mt-0 md:ml-3">
-            <Label value="Telefone" />
+          <div>
+            <Label value="Material" />
             <Input
-              id="phone"
-              label="Telefone"
+              id="material"
+              label="material"
               type="text"
               class="mt-1 block w-full"
-              v-model="form.phone"
+              v-model="form.material"
             />
-            <InputError :message="errors.phone" v-if="hasErrors" />
+            <InputError :message="errors.material" v-if="hasErrors" />
           </div>
-          <div class="mt-3 md:mt-0 md:ml-3">
-            <Label value="Endereço" />
+          <div>
+            <Label value="Lugar" />
             <Input
-              id="address"
-              label="Endereço"
+              id="place"
+              label="place"
               type="text"
               class="mt-1 block w-full"
-              v-model="form.address"
+              v-model="form.place"
             />
-            <InputError :message="errors.address" v-if="hasErrors" />
+            <InputError :message="errors.place" v-if="hasErrors" />
+          </div>
+          <div v-if="props.work">
+            <Label value="Pago" />
+            <Input
+              id="paid"
+              label="paid"
+              type="text"
+              class="mt-1 block w-full"
+              v-model="form.paid"
+            />
+            <InputError :message="errors.paid" v-if="hasErrors" />
+          </div>
+          <div>
+            <Label value="Valor de Frete" />
+            <Input
+              id="freight_value"
+              label="freight_value"
+              type="text"
+              class="mt-1 block w-full"
+              v-model="form.freight_value"
+            />
+            <InputError :message="errors.freight_value" v-if="hasErrors" />
+          </div>
+          <div>
+            <Label value="Preço" />
+            <Input
+              id="price"
+              label="price"
+              type="text"
+              class="mt-1 block w-full"
+              v-model="form.price"
+            />
+            <InputError :message="errors.price" v-if="hasErrors" />
           </div>
         </div>
 
