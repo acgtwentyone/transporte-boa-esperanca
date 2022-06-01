@@ -20,6 +20,10 @@ const props = defineProps({
     type: Object,
     default: undefined,
   },
+  from_client: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const form = props.work
@@ -44,11 +48,17 @@ const form = props.work
 
 const submit = () => {
   if (props.work) {
-    form.put(route("works.update", props.work), {
-      onSuccess: () => {
-        form.reset();
-      },
-    });
+    form.put(
+      route("works.update_work", {
+        work: props.work,
+        from_client: props.from_client,
+      }),
+      {
+        onSuccess: () => {
+          form.reset();
+        },
+      }
+    );
   } else {
     form.post(route("works.store"), {
       onSuccess: () => {

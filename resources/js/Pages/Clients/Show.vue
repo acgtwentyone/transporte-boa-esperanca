@@ -72,7 +72,7 @@ const client = computed(() => usePage().props.value.client);
           </template>
         </Dropdown>
       </div>
-      <ListClientWorks :recent="false" />
+      <ListClientWorks :recent="false" :from_client="true" />
     </div>
   </BreezeAuthenticatedLayout>
 </template>

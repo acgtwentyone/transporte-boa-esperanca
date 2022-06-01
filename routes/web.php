@@ -38,6 +38,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
     Route::resource('works', WorkController::class);
 
     Route::get('new-work/{client}', [WorkController::class, 'newWork'])->name('works.new_work');
+    Route::get('edit-work/{work}/{from_client?}', [WorkController::class, 'editWork'])->name('works.edit_work');
+    Route::put('update-work/{work}/{from_client?}', [WorkController::class, 'updateWork'])->name('works.update_work');
 });
 
 require __DIR__.'/auth.php';

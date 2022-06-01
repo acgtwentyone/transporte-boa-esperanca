@@ -20,7 +20,7 @@ import ListWorks from "@/Pages/Works/Partials/List.vue";
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <h1 class="p-4 text-base">Trabalhos Registrados</h1>
-      <ListWorks :recent="false" />
+      <ListWorks :recent="false" :from_client="false" />
     </div>
   </BreezeAuthenticatedLayout>
 </template>

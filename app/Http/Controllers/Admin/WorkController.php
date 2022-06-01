@@ -122,7 +122,17 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
-        //
+        return Inertia::render("Works/Edit", [
+            'work' => $work
+        ]);
+    }
+
+    public function editWork(Work $work, bool $from_client=false)
+    {
+        return Inertia::render("Works/Edit", [
+            'work' => $work,
+            'from_client' => $from_client,
+        ]);
     }
 
     /**
@@ -134,7 +144,45 @@ class WorkController extends Controller
      */
     public function update(WorkRequest $request, Work $work)
     {
-        //
+
+    }
+
+    public function updateWork(WorkRequest $request, Work $work, bool $from_client=false)
+    {
+        try {
+
+            $msg = ResponseMessage::DEFAULT;
+            $type = ResponseStatus::ERROR;
+
+            $client = $work->client;
+
+            if (isset($client)) {
+
+                $work->date = $request->date;
+                $work->material = $request->material;
+                $work->place = $request->place;
+        
+                if (isset($request->freight_value)) 
+                    $work->freight_value = $request->freight_value;
+
+                if (isset($request->paid)) 
+                    $work->paid = $request->paid;
+                    
+                if (isset($request->price))
+                    $work->price = $request->price;
+        
+                $work->save();
+
+                $msg = 'Trabalho atualizado com successo.';
+                $type = 'success';
+
+            } 
+
+        } catch(\Throwable $th) {
+            // log to database
+        }
+
+        return $from_client ? redirect()->route('clients.show', ['client' => $client])->with('message', ['msg' => $msg, 'type' => $type]) : redirect()->route('works.index');
     }
 
     /**

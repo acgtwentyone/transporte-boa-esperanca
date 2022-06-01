@@ -23143,7 +23143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Pages_Clients_Partials_CreateEdit_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Clients/Partials/CreateEdit.vue */ "./resources/js/Pages/Clients/Partials/CreateEdit.vue");
+/* harmony import */ var _Pages_Works_Partials_CreateEdit_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Works/Partials/CreateEdit.vue */ "./resources/js/Pages/Works/Partials/CreateEdit.vue");
 
 
 
@@ -23154,11 +23154,15 @@ __webpack_require__.r(__webpack_exports__);
     var work = (0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.work;
     });
+    var from_client = (0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.from_client;
+    });
     var __returned__ = {
       work: work,
+      from_client: from_client,
       usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage,
       computed: vue__WEBPACK_IMPORTED_MODULE_1__.computed,
-      CreateEdit: _Pages_Clients_Partials_CreateEdit_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+      CreateEdit: _Pages_Works_Partials_CreateEdit_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -23248,6 +23252,10 @@ __webpack_require__.r(__webpack_exports__);
     client: {
       type: Object,
       "default": undefined
+    },
+    from_client: {
+      type: Boolean,
+      "default": false
     }
   },
   setup: function setup(__props, _ref) {
@@ -23280,7 +23288,10 @@ __webpack_require__.r(__webpack_exports__);
 
     var submit = function submit() {
       if (props.work) {
-        form.put(route("works.update", props.work), {
+        form.put(route("works.update_work", {
+          work: props.work,
+          from_client: props.from_client
+        }), {
           onSuccess: function onSuccess() {
             form.reset();
           }
@@ -23346,6 +23357,10 @@ __webpack_require__.r(__webpack_exports__);
       "default": true
     },
     recent: {
+      type: Boolean,
+      "default": false
+    },
+    from_client: {
       type: Boolean,
       "default": false
     }
@@ -26074,7 +26089,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListClientWorks"], {
-        recent: false
+        recent: false,
+        from_client: true
       })])];
     }),
     _: 1
@@ -26186,7 +26202,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["CreateEdit"], {
-    client: $setup.client
+    client: $setup.client,
+    from_client: true
   }, null, 8
   /* PROPS */
   , ["client"]);
@@ -26209,10 +26226,11 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["CreateEdit"], {
-    work: $setup.work
+    work: $setup.work,
+    from_client: $setup.from_client
   }, null, 8
   /* PROPS */
-  , ["work"]);
+  , ["work", "from_client"]);
 }
 
 /***/ }),
@@ -26258,7 +26276,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ListWorks"], {
-        recent: false
+        recent: false,
+        from_client: false
       })])];
     }),
     _: 1
@@ -26681,7 +26700,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
     , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Link"], {
-      href: _ctx.route('works.edit', work)
+      href: _ctx.route('works.edit_work', {
+        work: work,
+        from_client: $setup.props.from_client
+      })
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [_hoisted_27];
