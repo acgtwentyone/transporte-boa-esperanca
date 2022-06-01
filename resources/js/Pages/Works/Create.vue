@@ -10,5 +10,5 @@ const hasErrors = computed(() => Object.keys(errors.value).length > 0);
 </script>
 
 <template>
-  <CreateEdit :client="client" :from_client="true"/>
+  <CreateEdit :client="client" />
 </template>
