@@ -3,8 +3,8 @@ import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, usePage } from "@inertiajs/inertia-vue3";
 import { computed } from "vue";
 
+const work = computed(() => usePage().props.value.work);
 const client = computed(() => usePage().props.value.client);
-const works = computed(() => usePage().props.value.works);
 </script>
 
 <template>
@@ -13,79 +13,53 @@ const works = computed(() => usePage().props.value.works);
   <BreezeAuthenticatedLayout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Informação de Cliente
+        Informação do Trabalho
       </h2>
     </template>
 
     <div class="flex flex-col">
       <div class="block rounded-md p-4 shadow-md">
-        <div class="p-1">
-          <span class="font-bold">Nome: </span
-          ><span class="text-gray-700">{{ client.name }}</span>
+        <div class="rounded:md shadow-md p-4">
+          <div class="p-1">
+            <span class="font-bold">Cliente: </span
+            ><span class="text-gray-700">{{ client.name }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Morada do Cliente: </span
+            ><span class="text-gray-700">{{ client.address }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Telefone do Cliente: </span
+            ><span class="text-gray-700">{{ client.phone }}</span>
+          </div>
         </div>
-        <div class="p-1">
-          <span class="font-bold">Endereco: </span
-          ><span class="text-gray-700">{{ client.address }}</span>
-        </div>
-        <div class="p-1">
-          <span class="font-bold">Telefone: </span
-          ><span class="text-gray-700">{{ client.phone }}</span>
-        </div>
-        <div class="p-1">
-          <span class="font-bold">Data do Registro: </span
-          ><span class="text-gray-700">{{ client.created_at }}</span>
+        <div class="rounded:md shadow-md p-4 mt-5">
+          <div class="p-1">
+            <span class="font-bold">Data: </span
+            ><span class="text-gray-700">{{ work.date }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Material: </span
+            ><span class="text-gray-700">{{ work.material }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Preço: </span
+            ><span class="text-gray-700">{{ work.price }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Valor de Frete: </span
+            ><span class="text-gray-700">{{ work.freight_value }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Lugar: </span
+            ><span class="text-gray-700">{{ work.place }}</span>
+          </div>
+          <div class="p-1">
+            <span class="font-bold">Data do Registro: </span
+            ><span class="text-gray-700">{{ work.created_at }}</span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="flex flex-col rounded-md shadow-md mt-10">
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight p-2">
-        Trabalhos realizados com o cliente
-      </h2>
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-        >
-          <tr>
-            <th scope="col" class="px-6 py-3">Data</th>
-            <th scope="col" class="px-6 py-3">Material</th>
-            <th scope="col" class="px-6 py-3">Lugar</th>
-            <th scope="col" class="px-6 py-3">Valor de Frete</th>
-            <th scope="col" class="px-6 py-3">Pago</th>
-            <th scope="col" class="px-6 py-3">Valor Dívida</th>
-            <th scope="col" class="px-6 py-3">Data da Dívida</th>
-            <th scope="col" class="px-6 py-3">Data do Registro</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="work in works"
-            :key="work.id"
-            class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
-          >
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-            >
-              {{ work.date }}
-            </th>
-            <td class="px-6 py-4">{{ work.material }}</td>
-            <td class="px-6 py-4">{{ work.place }}</td>
-            <td class="px-6 py-4">{{ work.freight_value }}</td>
-            <td class="px-6 py-4">{{ work.paid }}</td>
-            <td class="px-6 py-4">{{ work.debt_value }}</td>
-            <td class="px-6 py-4">{{ work.debt_date }}</td>
-            <td class="px-6 py-4">{{ work.created_at }}</td>
-          </tr>
-          <tr
-            class="relative overflow-x-auto shadow-md sm:rounded-lg"
-            v-if="works.length === 0"
-          >
-            <td class="px-6 py-4">
-              Não há trabalhos realizados com este cliente!!!
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </BreezeAuthenticatedLayout>
 </template>

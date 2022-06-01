@@ -8,6 +8,8 @@ use App\Models\Client;
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
 use App\Helpers\WorkStatus;
+use App\Helpers\ResponseMessage;
+use App\Helpers\ResponseStatus;
 
 class WorkController extends Controller
 {
@@ -63,8 +65,8 @@ class WorkController extends Controller
     {
         try {
 
-            $msg = 'Algo deu errado';
-            $type = 'error';
+            $msg = ResponseMessage::DEFAULT;
+            $type = ResponseStatus::ERROR;
 
             $work = new Work;
 
@@ -92,7 +94,7 @@ class WorkController extends Controller
             } 
 
         } catch(\Throwable $th) {
-            $msg = 'Oppss... Algo deu errado.';
+            // log to database
         }
 
         return redirect()->route('clients.show', ['client' => $client])->with('message', ['msg' => $msg, 'type' => $type]);
@@ -106,7 +108,10 @@ class WorkController extends Controller
      */
     public function show(Work $work)
     {
-        //
+        return Inertia::render('Works/Show', [
+            'work' => $work,
+            'client' => $work->client
+        ]);
     }
 
     /**
@@ -140,6 +145,20 @@ class WorkController extends Controller
      */
     public function destroy(Work $work)
     {
-        //
+        try {
+
+            $msg = ResponseMessage::DEFAULT;
+            $type = ResponseStatus::ERROR;
+            
+            $work->delete();
+
+            $msg = 'Trabalho removido com successo.';
+            $type = ResponseStatus::SUCCESS;
+            
+        } catch (\Throwable $th) {
+            // log to database
+        }
+
+        return redirect()->back()->with('message', ['msg' => $msg, 'type' => $type]);
     }
 }
