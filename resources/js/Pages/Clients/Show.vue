@@ -40,7 +40,7 @@ const client = computed(() => usePage().props.value.client);
         </div>
       </div>
     </div>
-    <div class="flex flex-col rounded-md shadow-md mt-10">
+    <div class="flex flex-col rounded-md shadow-md mt-8">
       <div class="flex justify-between w-full items-center">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight p-2">
           Trabalhos realizados com o cliente
