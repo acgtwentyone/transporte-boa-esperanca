@@ -84,8 +84,8 @@ const submit = () => {
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-4">
       <form @submit.prevent="submit">
-        <div class="block md:flex">
-          <div>
+        <div class="block md:flex md:flex-wrap">
+          <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Data" />
             <Input
               id="date"
@@ -96,7 +96,7 @@ const submit = () => {
             />
             <InputError :message="errors.date" v-if="hasErrors" />
           </div>
-          <div>
+          <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Material" />
             <Input
               id="material"
@@ -107,7 +107,7 @@ const submit = () => {
             />
             <InputError :message="errors.material" v-if="hasErrors" />
           </div>
-          <div>
+          <div class="mt-4 md:mt-0 md:ml-3">
             <Label value="Lugar" />
             <Input
               id="place"
@@ -118,7 +118,7 @@ const submit = () => {
             />
             <InputError :message="errors.place" v-if="hasErrors" />
           </div>
-          <div v-if="props.work">
+          <div v-if="props.work" class="mt-4 md:mt-0 md:ml-3">
             <Label value="Pago" />
             <Input
               id="paid"
@@ -129,7 +129,7 @@ const submit = () => {
             />
             <InputError :message="errors.paid" v-if="hasErrors" />
           </div>
-          <div>
+          <div class="mt-4 md:mt-0 md:ml-3 md:mt-4">
             <Label value="Valor de Frete" />
             <Input
               id="freight_value"
@@ -140,7 +140,7 @@ const submit = () => {
             />
             <InputError :message="errors.freight_value" v-if="hasErrors" />
           </div>
-          <div>
+          <div class="mt-4 md:mt-0 md:ml-3 md:mt-4">
             <Label value="Preço" />
             <Input
               id="price"
