@@ -24,7 +24,7 @@ class AdminController extends Controller
         $works = Work::orderByDesc('created_at'); 
 
         return Inertia::render('AdminDashboard', [
-            'clients' => $clients->take(8)->get()->map(function($client) {
+            'clients' => $clients->take(5)->get()->map(function($client) {
                 return [
                     'id' => $client->id,
                     'name' => $client->name,
@@ -33,7 +33,7 @@ class AdminController extends Controller
                     'created_at' => $client->created_at->toDateTimeString(), 
                 ];
             }),
-            'works' => $works->take(8)->get()->map(function($work) {
+            'works' => $works->take(5)->get()->map(function($work) {
                 return [
                     'id' => $work->id,
                     'date' => $work->date,
