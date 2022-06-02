@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Work;
+use App\Models\Invoice;
 
 class Client extends Model
 {
@@ -15,5 +16,9 @@ class Client extends Model
 
     public function works() {
         return $this->hasMany(Work::class);
+    }
+
+    public function invoices() {
+        return $this->hasMany(Invoice::class);
     }
 }
