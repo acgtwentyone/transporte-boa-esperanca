@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\InvoiceController;
-// use App\Http\Controllers\Admin\FuelController;
+use App\Http\Controllers\Admin\FuelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->group(function() {
     Route::resource('clients', ClientController::class);
     Route::resource('works', WorkController::class);
     Route::resource('invoices', InvoiceController::class);
-    // Route::resource('fuels', FuelController::class);
+    Route::resource('fuels', FuelController::class);
 
     Route::get('new-work/{client}', [WorkController::class, 'newWork'])->name('works.new_work');
     Route::get('edit-work/{work}/{from_client?}', [WorkController::class, 'editWork'])->name('works.edit_work');
