@@ -17,7 +17,12 @@ class FuelFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'date' => $this->faker->dateTimeBetween(),
+            'value' => $this->faker->randomFloat(2),
+            'file' => 'fuel_1.png',
+            'driver' => $this->faker->name(),
+            'plate' => 'ST-' . $this->faker->regexify('[A-Z]{2}') . '-' . $this->faker->regexify('[A-Z]{2}'),
+            'obs' => $this->faker->text(),
         ];
     }
 }
