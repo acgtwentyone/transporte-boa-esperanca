@@ -55,6 +55,7 @@ const data = computed(() =>
           <td class="px-6 py-4">{{ invoice.obs }}</td>
           <td class="px-6 py-4">{{ invoice.client }}</td>
           <td class="px-6 py-4">{{ invoice.created_at }}</td>
+
           <td class="px-6 py-4 text-right" v-if="hasActions">
             <div class="flex justify-end">
               <Link :href="route('invoices.show', invoice)">
@@ -111,10 +112,10 @@ const data = computed(() =>
                     />
                   </svg>
                 </template>
-                <template #title> Apagar registro de faturas ? </template>
+                <template #title> Apagar registro da fatura ? </template>
                 <template #content>
                   <span
-                    >Não será possivel obter os registros de faturas após
+                    >Não será possivel obter os registros da fatura após
                     realizar esta operação.</span
                   >
                 </template>
