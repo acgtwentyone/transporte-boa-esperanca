@@ -16,14 +16,6 @@ class InvoiceFactory extends Factory
      */
     public function definition()
     {
-
-        /**
-         * $table->dateTime('date');
-         **   $table->decimal('value');
-          *  $table->string('file');
-          *  $table->longText('obs')->nullable();
-         */
-
         $client = \App\Models\Client::first();
         return [
             'date' => $this->faker->dateTimeBetween(),
