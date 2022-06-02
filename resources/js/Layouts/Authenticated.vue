@@ -72,8 +72,8 @@ const showingNavigationDropdown = ref(false);
               </svg>
             </BreezeSidebarLink>
             <BreezeSidebarLink
-              href="#"
-              :active="route().current('admin.invoices')"
+              :href="route('invoices.index')"
+              :active="route().current('invoices.index')"
             >
               <span class="hidden sm:block">Faturas</span>
               <svg
