@@ -19,8 +19,8 @@ const total_works = computed(() => usePage().props.value.total_works);
 
   <BreezeAuthenticatedLayout>
     <template #header>
-      <div class="flex flex-wrap">
-        <StatisticBox :href="route('clients.index')" class="mr-0 sm:mr-4">
+      <div class="block sm:flex sm:flex-wrap">
+        <StatisticBox :href="route('clients.index')" class="mb-4 mr-4">
           <template #icon>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const total_works = computed(() => usePage().props.value.total_works);
             <span>Clientes</span>
           </template>
         </StatisticBox>
-        <StatisticBox :href="route('clients.index')" class="mt-4 sm:mt-0">
+        <StatisticBox :href="route('clients.index')" class="mb-4 mr-4">
           <template #icon>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +71,64 @@ const total_works = computed(() => usePage().props.value.total_works);
           </template>
           <template #title>
             <span>Trabalhos</span>
+          </template>
+        </StatisticBox>
+        <StatisticBox :href="route('invoices.index')" class="mb-4 mr-4">
+          <template #icon>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+              />
+            </svg>
+          </template>
+          <template #total>
+            <span>{{ total_invoices }}</span>
+          </template>
+          <template #title>
+            <span>Faturas</span>
+          </template>
+        </StatisticBox>
+        <StatisticBox :href="route('fuels.index')" class="mb-4 mr-4">
+          <template #icon>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+              />
+            </svg>
+          </template>
+          <template #total>
+            <span>{{ total_fuels }}</span>
+          </template>
+          <template #title>
+            <span>Combustíveis</span>
           </template>
         </StatisticBox>
       </div>
