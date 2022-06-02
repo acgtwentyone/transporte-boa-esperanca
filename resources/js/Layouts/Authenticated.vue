@@ -91,8 +91,8 @@ const showingNavigationDropdown = ref(false);
               </svg>
             </BreezeSidebarLink>
             <BreezeSidebarLink
-              href="#"
-              :active="route().current('admin.fuels')"
+              :href="route('fuels.index')"
+              :active="route().current('fuels.index')"
             >
               <span class="hidden sm:block">Combustíveis</span>
               <svg
