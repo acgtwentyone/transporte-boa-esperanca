@@ -31,11 +31,13 @@ const data = computed(() =>
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
-          <th scope="col" class="px-6 py-3">Nome</th>
-          <th scope="col" class="px-6 py-3">Morada</th>
-          <th scope="col" class="px-6 py-3">Telefone</th>
-          <th scope="col" class="px-6 py-3">Data do Registro</th>
-          <th scope="col" class="px-6 py-3" v-if="hasActions">
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Nome</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Morada</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Telefone</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">
+            Data do Registro
+          </th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap" v-if="hasActions">
             <span class="sr-only"></span>
           </th>
         </tr>

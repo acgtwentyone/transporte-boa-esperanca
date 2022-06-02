@@ -29,12 +29,18 @@ const data = computed(() =>
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
-          <th scope="col" class="px-6 py-3">Data da Compra do Combustível</th>
-          <th scope="col" class="px-6 py-3">Condutor</th>
-          <th scope="col" class="px-6 py-3">Matrícula do Carro</th>
-          <th scope="col" class="px-6 py-3">Observação</th>
-          <th scope="col" class="px-6 py-3">Data do Registro</th>
-          <th scope="col" class="px-6 py-3" v-if="hasActions">
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">
+            Data da Compra do Combustível
+          </th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Condutor</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">
+            Matrícula do Carro
+          </th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Observação</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">
+            Data do Registro
+          </th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap" v-if="hasActions">
             <span class="sr-only"></span>
           </th>
         </tr>
