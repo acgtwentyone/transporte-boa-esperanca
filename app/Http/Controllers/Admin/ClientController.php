@@ -6,6 +6,7 @@ use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -14,10 +15,13 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Inertia::render('Clients/Index', [
-            'clients' => Client::orderByDesc('created_at')->paginate(8)->withQueryString()->through(function($client) {
+
+        $params = [
+            'clients' => Client::orderByDesc('created_at')->when($request->term, function($query, $term) {
+                $query->where('name', 'LIKE', '%'. $term .'%');
+            })->paginate(8)->withQueryString()->through(function($client) {
                 return [
                     'id' => $client->id,
                     'name' => $client->name,
@@ -25,8 +29,10 @@ class ClientController extends Controller
                     'address' => $client->address,
                     'created_at' => $client->created_at->toDateTimeString(), 
                 ];
-            })
-        ]);
+            }),
+        ];
+
+        return Inertia::render('Clients/Index', $params);
     }
 
     /**

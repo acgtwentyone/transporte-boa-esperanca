@@ -2,8 +2,17 @@
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, usePage, Link } from "@inertiajs/inertia-vue3";
 import Button from "@/Components/Button.vue";
-import { computed } from "vue";
+import { computed, ref, reactive } from "vue";
 import ListClient from "@/Pages/Clients/Partials/List.vue";
+import { Inertia } from "@inertiajs/inertia";
+
+const state = reactive({
+  term: undefined !== route().params.term ? route().params.term : '',
+})
+
+const search = () => {
+  Inertia.get(route('clients.index'), {term: state.term});
+}
 </script>
 
 <template>
@@ -40,7 +49,10 @@ import ListClient from "@/Pages/Clients/Partials/List.vue";
     </template>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <h1 class="p-4 text-base">Clientes Registrados</h1>
+      <div class="flex justify-between w-full">
+        <h1 class="p-4 text-base">Clientes Registrados</h1>
+        <input v-model="state.term" type="text" name="term" @keyup="search" placeholder="Pesquisar..." class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+      </div>
       <ListClient :recent="false" />
     </div>
   </BreezeAuthenticatedLayout>
