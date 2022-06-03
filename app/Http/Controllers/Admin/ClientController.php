@@ -17,8 +17,7 @@ class ClientController extends Controller
      */
     public function index(Request $request)
     {
-
-        $params = [
+        return Inertia::render('Clients/Index', [
             'clients' => Client::orderByDesc('created_at')->when($request->term, function($query, $term) {
                 $query->where('name', 'LIKE', '%'. $term .'%');
             })->paginate(8)->withQueryString()->through(function($client) {
@@ -30,9 +29,7 @@ class ClientController extends Controller
                     'created_at' => $client->created_at->toDateTimeString(), 
                 ];
             }),
-        ];
-
-        return Inertia::render('Clients/Index', $params);
+        ]);
     }
 
     /**
