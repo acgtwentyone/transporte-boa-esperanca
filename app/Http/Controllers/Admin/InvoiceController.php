@@ -25,7 +25,7 @@ class InvoiceController extends Controller
                     'date' => $invoice->date,
                     'file' => $invoice->file,
                     'obs' => Str::of($invoice->obs)->length() > 50 ? Str::substr($invoice->obs, 0, 49) . '...' : $invoice->obs,
-                    'client' => $invoice->client->name,
+                    'client' => $invoice->client,
                     'created_at' => $invoice->created_at->toDateTimeString(), 
                 ];
             })

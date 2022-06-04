@@ -57,7 +57,14 @@ const data = computed(() =>
             {{ invoice.date }}
           </th>
           <td class="px-6 py-4">{{ invoice.obs }}</td>
-          <td class="px-6 py-4">{{ invoice.client }}</td>
+          <td class="px-6 py-4">
+            <Link
+              :href="route('clients.show', invoice.client)"
+              class="text-blue-900"
+            >
+              {{invoice.client.name}}
+            </Link>
+          </td>
           <td class="px-6 py-4">{{ invoice.created_at }}</td>
 
           <td class="px-6 py-4 text-right" v-if="hasActions">
