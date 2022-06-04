@@ -51,6 +51,7 @@ class AdminController extends Controller
                     'price' => $work->price,
                     'debt_date' => $work->debt_date,
                     'created_at' => $work->created_at->toDateTimeString(),
+                    'client' => $work->client,
                 ];
             }),
             'fuels' => $fuels->take(3)->get()->map(function($invoice) {
@@ -72,6 +73,7 @@ class AdminController extends Controller
                     'obs' => Str::of($invoice->obs)->length() > 50 ? Str::substr($invoice->obs, 0, 49) . '...' : $invoice->obs,
                     'client' => $invoice->client->name,
                     'created_at' => $invoice->created_at->toDateTimeString(), 
+                    'client' => $invoice->client,
                 ];
             }),
             'total_clients' => $clients->count(),
