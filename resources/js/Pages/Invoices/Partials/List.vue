@@ -31,11 +31,11 @@ const data = computed(() =>
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Cliente</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">
             Data da Fatura
           </th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Observação</th>
-          <th scope="col" class="px-6 py-3 whitespace-nowrap">Cliente</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">
             Data do Registro
           </th>
@@ -50,13 +50,6 @@ const data = computed(() =>
           :key="invoice.id"
           class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
         >
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-          >
-            {{ invoice.date }}
-          </th>
-          <td class="px-6 py-4">{{ invoice.obs }}</td>
           <td class="px-6 py-4">
             <Link
               :href="route('clients.show', invoice.client)"
@@ -65,6 +58,13 @@ const data = computed(() =>
               {{invoice.client.name}}
             </Link>
           </td>
+          <th
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+          >
+            {{ invoice.date }}
+          </th>
+          <td class="px-6 py-4">{{ invoice.obs }}</td>
           <td class="px-6 py-4">{{ invoice.created_at }}</td>
 
           <td class="px-6 py-4 text-right" v-if="hasActions">
