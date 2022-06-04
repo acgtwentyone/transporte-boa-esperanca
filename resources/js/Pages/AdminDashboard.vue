@@ -18,7 +18,7 @@ const chartWorksPerStatusOptions = ref({
     type: "column",
   },
   title: {
-    text: "Total de Trabalhos Por Estado",
+    text: "Total de Trabalhos Por Estado, 2022",
   },
   xAxis: {
     categories: [
