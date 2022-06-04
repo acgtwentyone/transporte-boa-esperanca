@@ -30,11 +30,12 @@ const data = computed(() =>
       >
         <tr>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">
-            Data da Compra do Combustível
+            Matrícula do Carro
           </th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Condutor</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Valor</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">
-            Matrícula do Carro
+            Data da Compra do Combustível
           </th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Observação</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">
@@ -51,14 +52,15 @@ const data = computed(() =>
           :key="fuel.id"
           class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
         >
+          <td class="px-6 py-4 whitespace-nowrap">{{ fuel.plate }}</td>
+          <td class="px-6 py-4">{{ fuel.driver }}</td>
+          <td class="px-6 py-4">{{ fuel.value }}</td>
           <th
             scope="row"
             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
           >
             {{ fuel.date }}
           </th>
-          <td class="px-6 py-4">{{ fuel.driver }}</td>
-          <td class="px-6 py-4">{{ fuel.plate }}</td>
           <td class="px-6 py-4">{{ fuel.obs }}</td>
           <td class="px-6 py-4">{{ fuel.created_at }}</td>
           <td class="px-6 py-4 text-right" v-if="hasActions">

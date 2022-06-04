@@ -25,6 +25,7 @@ class FuelController extends Controller
                     'date' => $invoice->date,
                     'file' => $invoice->file,
                     'driver' => $invoice->driver,
+                    'value' => $invoice->value,
                     'plate' => $invoice->plate,
                     'obs' => Str::of($invoice->obs)->length() > 50 ? Str::substr($invoice->obs, 0, 49) . '...' : $invoice->obs,
                     'created_at' => $invoice->created_at->toDateTimeString(), 
