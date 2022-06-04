@@ -36,6 +36,7 @@ class AdminController extends Controller
                     'phone' => $client->phone,
                     'address' => $client->address,
                     'created_at' => $client->created_at->toDateTimeString(), 
+                    'total_works' => $client->works()->count(),
                 ];
             }),
             'works' => $works->take(3)->get()->map(function($work) {

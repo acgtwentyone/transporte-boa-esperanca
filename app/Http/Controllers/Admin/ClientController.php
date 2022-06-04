@@ -27,6 +27,7 @@ class ClientController extends Controller
                     'phone' => $client->phone,
                     'address' => $client->address,
                     'created_at' => $client->created_at->toDateTimeString(), 
+                    'total_works' => $client->works()->count(),
                 ];
             }),
         ]);

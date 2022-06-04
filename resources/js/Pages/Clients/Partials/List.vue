@@ -34,6 +34,7 @@ const data = computed(() =>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Nome</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Morada</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Telefone</th>
+          <th scope="col" class="px-6 py-3 whitespace-nowrap">Trabalhos</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">
             Data do Registro
           </th>
@@ -59,6 +60,9 @@ const data = computed(() =>
           </th>
           <td class="px-6 py-4">{{ client.address }}</td>
           <td class="px-6 py-4">{{ client.phone }}</td>
+          <td class="px-6 py-4">
+            <span class="rounded shadow-sm px-5 py-1 text-white bg-gray-700"> {{ client.total_works }}</span>
+          </td>
           <td class="px-6 py-4">{{ client.created_at }}</td>
           <td class="px-6 py-4 text-right" v-if="hasActions">
             <div class="flex justify-end">
