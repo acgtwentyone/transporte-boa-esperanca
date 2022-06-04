@@ -33,6 +33,13 @@ const data = computed(() =>
         class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
+          <th
+            scope="col"
+            class="px-6 py-3 whitespace-nowrap"
+            v-if="!from_client"
+          >
+            Cliente
+          </th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Data</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Material</th>
           <th scope="col" class="px-6 py-3 whitespace-nowrap">Lugar</th>
@@ -52,6 +59,18 @@ const data = computed(() =>
           :key="work.id"
           class="border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700"
         >
+          <th
+            v-if="!from_client"
+            scope="row"
+            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+          >
+            <Link
+              :href="route('clients.show', work.client)"
+              class="text-blue-900"
+            >
+              {{ work.client.name }}
+            </Link>
+          </th>
           <th
             scope="row"
             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
@@ -105,7 +124,10 @@ const data = computed(() =>
               </Link>
               <Link
                 :href="
-                  route('works.edit_work', { work: work, from_client: props.from_client })
+                  route('works.edit_work', {
+                    work: work,
+                    from_client: props.from_client,
+                  })
                 "
               >
                 <svg

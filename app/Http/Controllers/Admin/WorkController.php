@@ -33,6 +33,7 @@ class WorkController extends Controller
                     'price' => $work->price,
                     'debt_date' => $work->debt_date,
                     'created_at' => $work->created_at->toDateTimeString(),
+                    'client' => $work->client,
                 ];
             })
         ]);
