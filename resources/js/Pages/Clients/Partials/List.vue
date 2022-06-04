@@ -52,7 +52,10 @@ const data = computed(() =>
             scope="row"
             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
           >
-            {{ client.name }}
+            <!-- {{ client.name }} -->
+            <Link :href="route('clients.show', client)" class="text-blue-900">
+              {{ client.name }}
+            </Link>
           </th>
           <td class="px-6 py-4">{{ client.address }}</td>
           <td class="px-6 py-4">{{ client.phone }}</td>
