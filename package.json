@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "@vuepic/vue-datepicker": "^3.2.1",
+        "highcharts-vue": "^1.4.0",
         "vue-select": "^4.0.0-beta.3"
     }
 }

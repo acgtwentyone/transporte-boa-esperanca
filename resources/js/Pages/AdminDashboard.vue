@@ -4,13 +4,151 @@ import StatisticBox from "@/Components/StatisticBox.vue";
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
 import { Head, usePage } from "@inertiajs/inertia-vue3";
+import { Chart } from "highcharts-vue";
 
 import ListClient from "@/Pages/Clients/Partials/List.vue";
 import ListWorks from "@/Pages/Works/Partials/List.vue";
 import ListInvoices from "@/Pages/Invoices/Partials/List.vue";
 import ListFuels from "@/Pages/Fuels/Partials/List.vue";
 
-import { computed } from "vue";
+import { computed, ref } from "vue";
+
+const chartWorksPerStatusOptions = ref({
+  chart: {
+    type: "column",
+  },
+  title: {
+    text: "Total de Trabalhos Por Estado",
+  },
+  xAxis: {
+    categories: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    crosshair: true,
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: "Trabalho (estado)",
+    },
+  },
+  tooltip: {
+    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+    pointFormat:
+      '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+      '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+    footerFormat: "</table>",
+    shared: true,
+    useHTML: true,
+  },
+  plotOptions: {
+    column: {
+      pointPadding: 0.2,
+      borderWidth: 0,
+    },
+  },
+  series: [
+    {
+      name: "Pago",
+      data: [
+        49.9,
+        71.5,
+        106.4,
+        129.2,
+        144.0,
+        176.0,
+        135.6,
+        148.5,
+        216.4,
+        194.1,
+        95.6,
+        54.4,
+      ],
+    },
+    {
+      name: "Não Pago",
+      data: [
+        83.6,
+        78.8,
+        98.5,
+        93.4,
+        106.0,
+        84.5,
+        105.0,
+        104.3,
+        91.2,
+        83.5,
+        106.6,
+        92.3,
+      ],
+    },
+  ],
+});
+
+const chartWorksPerPriceOptions = ref({
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: "pie",
+  },
+  title: {
+    text: "Trabalho Realizado Por Preço, 2022",
+  },
+  tooltip: {
+    pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
+  },
+  accessibility: {
+    point: {
+      valueSuffix: "%",
+    },
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: "pointer",
+      dataLabels: {
+        enabled: true,
+        format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+      },
+    },
+  },
+  series: [
+    {
+      name: "Trabalhso",
+      colorByPoint: true,
+      data: [
+        {
+          name: "0 a 1000",
+          y: 11.84,
+        },
+        {
+          name: "1000 a 5000",
+          y: 50.85,
+        },
+        {
+          name: "5000 a 10000",
+          y: 20.85,
+        },
+        {
+          name: "Mais de 10000",
+          y: 10.85,
+        },
+      ],
+    },
+  ],
+});
 
 const total_clients = computed(() => usePage().props.value.total_clients);
 const total_works = computed(() => usePage().props.value.total_works);
@@ -118,6 +256,16 @@ const total_fuels = computed(() => usePage().props.value.total_fuels);
       </div>
     </template>
 
+    <div class="relative overflow-x-auto">
+      <div class="flex mb-10 flex-col w-full">
+        <div class="shadow-md rounded-lg p-4">
+          <Chart :options="chartWorksPerStatusOptions"></Chart>
+        </div>
+        <div class="shadow-md rounded-lg p-4 md:w-2/3 mt-4">
+          <Chart :options="chartWorksPerPriceOptions"></Chart>
+        </div>
+      </div>
+    </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
       <div class="flex justify-between items-center">
         <h1 class="font-semibold text-xl text-gray-800 leading-tight p-4">
