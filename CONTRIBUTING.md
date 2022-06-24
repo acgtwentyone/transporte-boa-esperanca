@@ -28,6 +28,8 @@ And then type
 sail composer install
 ```
 
+Please note that you may wish to configure a Bash alias that allows you to execute Sail's commands more easily. Please see [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias).
+
 And then 
 
 ```
@@ -40,4 +42,4 @@ To launch your application in browser type
 sail up
 ```
 
-Please see the sail [docs](https://laravel.com/docs/9.x/sail) for more information. Note that you may wish to configure a Bash alias that allows you to execute Sail's commands more easily. Please see [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias).
+Please see the sail [docs](https://laravel.com/docs/9.x/sail) for more information. 
