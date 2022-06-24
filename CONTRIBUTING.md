@@ -33,7 +33,7 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-This command let you be able to run sail, bacause there is no vendor directory yet in your project, so will not be able to execute sail command yet. See [here](https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects).
+Note that we assume that you have docker installed on your local machine. This command let you be able to run sail, bacause there is no vendor directory yet in your project, so will not be able to execute sail command yet. See [here](https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects).
 
 And then type the following command 
 
