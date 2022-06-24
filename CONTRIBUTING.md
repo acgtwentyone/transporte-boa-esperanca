@@ -22,13 +22,30 @@ Then navigate to the project by running the following command
 cd boa-esperanca-db 
 ```
 
-And then type
+Go ahead and run the following command
 
 ```
-sail composer install
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    composer install --ignore-platform-reqs
 ```
 
-Please note that you may wish to configure a Bash alias that allows you to execute Sail's commands more easily. Please see [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias).
+This command let you be able to run sail, bacause there is no vendor directory yet in your project, so will not be able to execute sail command yet. See [here](https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects).
+
+And then type the following command 
+
+```
+./vendor/bin/sail composer install
+```
+
+Please note that you may wish to configure a Bash alias that allows you to execute Sail's commands more easily. Please see [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias). Otherwise, run the following command instead
+
+```
+./vendor/bin/sail up
+```
 
 And then 
 
