@@ -41,13 +41,7 @@ And then type the following command
 ./vendor/bin/sail composer install
 ```
 
-Then type the following command start docker container
-
-```
-./vendor/bin/sail up
-```
-
-And then 
+And then trype the following command to install the node modules and compile js and css files.
 
 ```
 ./vendor/bin/sail npm install && sail npm run dev
