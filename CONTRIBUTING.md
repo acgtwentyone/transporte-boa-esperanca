@@ -13,7 +13,7 @@ Make sure you have [Node.js](https://nodejs.org/en/) installed on your machine. 
 Fork the repo by running 
 
 ```
-git clone https://github.com/*yourusername*/boa-esperanca-db.git
+git clone https://github.com/acgtwentyone/boa-esperanca-db.git
 ``` 
 
 Then navigate to the project by running the following command 
