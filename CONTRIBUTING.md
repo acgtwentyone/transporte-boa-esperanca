@@ -48,5 +48,12 @@ And then trype the following command to install the node modules, compile and li
 ./vendor/bin/sail npm install && ./vendor/bin/sail npm run dev
 ```
 
+Create a file name ```.env``` on your project root directory. Copy and paste the content from ```.env.example```.
+
+And than run the following command in order clear laravel cache
+
+```
+./vendor/bin/sail atisan config:cache
+```
 
 Please see the sail [docs](https://laravel.com/docs/9.x/sail) for more information. Please note that you may wish to configure a Bash alias that allows you to execute Sail's commands more easily. Please see [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias). 
