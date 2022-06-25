@@ -45,7 +45,7 @@ To start sail run the following command:
 And then trype the following command to install the node modules, compile and listen for js and css changes.
 
 ```
-./vendor/bin/sail npm install && sail npm run dev
+./vendor/bin/sail npm install && ./vendor/bin/sail npm run dev
 ```
 
 
