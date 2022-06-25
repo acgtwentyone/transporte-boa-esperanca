@@ -35,22 +35,18 @@ docker run --rm \
 
 Note that we assume that you have docker installed on your local machine and running. If not, please download it [here](https://www.docker.com/get-started/). This command let you be able to run sail, bacause there is no vendor directory yet in your project, so will not be able to execute sail command yet. See [here](https://laravel.com/docs/8.x/sail#installing-composer-dependencies-for-existing-projects).
 
-And then type the following command 
+
+To start sail run the following command:
 
 ```
-./vendor/bin/sail composer install
+./vendor/bin/sail up
 ```
 
-And then trype the following command to install the node modules and compile js and css files.
+And then trype the following command to install the node modules, compile and listen for js and css changes.
 
 ```
 ./vendor/bin/sail npm install && sail npm run dev
 ```
 
-To launch your application in browser type
-
-```
-./vendor/bin/sail up
-```
 
 Please see the sail [docs](https://laravel.com/docs/9.x/sail) for more information. Please note that you may wish to configure a Bash alias that allows you to execute Sail's commands more easily. Please see [here](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias). 
