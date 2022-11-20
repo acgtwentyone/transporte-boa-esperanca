@@ -22,6 +22,12 @@ const data = computed(() =>
     ? usePage().props.value.clients.data
     : usePage().props.value.clients
 );
+const limit_str = (str, l) => {
+  if (str.length > l) {
+    return `${str.slice(0, l)}...`;
+  }
+  return str;
+};
 </script>
 
 <template>
@@ -58,7 +64,7 @@ const data = computed(() =>
               {{ client.name }}
             </Link>
           </th>
-          <td class="px-6 py-4">{{ client.address }}</td>
+          <td class="px-6 py-4">{{ limit_str(client.address, 10) }}</td>
           <td class="px-6 py-4">{{ client.phone }}</td>
           <td class="px-6 py-4">
             <span class="rounded shadow-sm px-5 py-1 text-white bg-gray-700"> {{ client.total_works }}</span>
