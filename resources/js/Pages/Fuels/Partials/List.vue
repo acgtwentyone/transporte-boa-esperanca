@@ -4,6 +4,7 @@ import { computed } from "vue";
 
 import ConfirmDialog from "@/Components/ConfirmDialog.vue";
 import Pagination from "@/Components/Pagination.vue";
+import {limit_str} from '../../../Utils/StrUtils'
 
 const props = defineProps({
   hasActions: {
@@ -61,7 +62,7 @@ const data = computed(() =>
           >
             {{ fuel.date }}
           </th>
-          <td class="px-6 py-4">{{ fuel.obs }}</td>
+          <td class="px-6 py-4">{{ limit_str(fuel.obs, 32) }}</td>
           <td class="px-6 py-4">{{ fuel.created_at }}</td>
           <td class="px-6 py-4 text-right" v-if="hasActions">
             <div class="flex justify-end">

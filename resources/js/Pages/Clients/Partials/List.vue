@@ -4,6 +4,7 @@ import { computed } from "vue";
 
 import ConfirmDialog from "@/Components/ConfirmDialog.vue";
 import Pagination from "@/Components/Pagination.vue";
+import {limit_str} from '../../../Utils/StrUtils'
 
 const props = defineProps({
   hasActions: {
@@ -22,12 +23,6 @@ const data = computed(() =>
     ? usePage().props.value.clients.data
     : usePage().props.value.clients
 );
-const limit_str = (str, l) => {
-  if (str.length > l) {
-    return `${str.slice(0, l)}...`;
-  }
-  return str;
-};
 </script>
 
 <template>
