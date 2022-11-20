@@ -15,12 +15,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        // super admin
         // \App\Models\User::factory()->create([
             //     'name' => config("custom.SUPER_ADMIN_USERNAME"),
             //     'email' => config("custom.SUPER_ADMIN_EMAIL"),
             //     'password' => Hash::make(config("custom.SUPER_ADMIN_PASSWORD")),
             // ]);
+            
+        // nata
+        // \App\Models\User::factory()->create([
+        //     'name' => config("custom.NATA_USERNAME"),
+        //     'email' => config("custom.NATA_EMAIL"),
+        //     'password' => Hash::make(config("custom.NATA_PASSWORD")),
+        // ]);
+
         // add some dummy users
         // \App\Models\User::factory(3)->create();
 
